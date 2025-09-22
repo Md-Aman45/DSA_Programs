@@ -1,3 +1,1 @@
-Is no. is palindrome:- No
-No. 3
-RevN 173
+Numbers Divided by 36 :- [1, 2, 3, 4, 6, 9, 12, 18, 36]
