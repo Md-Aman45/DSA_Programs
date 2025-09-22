@@ -1,0 +1,3 @@
+Is no. is palindrome:- No
+No. 3
+RevN 173
