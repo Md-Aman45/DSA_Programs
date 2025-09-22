@@ -24,20 +24,3 @@ public class Demo {
         System.out.print("RevNum:- " + revNum);
     }
 }
-
-// //  Logs...
-// public class Demo {
-//     public static void main(String[] args) {
-//         Scanner sc = new Scanner(System.in);
-//         System.out.print("Enter a number: ");
-//         int n = sc.nextInt();
-//         int count;
-//         if (n == 0) {
-//             count = 1;
-//         } else {
-//             count = (int)(Math.log10(n)) + 1;
-//         }
-//         System.out.println("Number of digits: " + count);
-//         sc.close();
-//     }
-// }

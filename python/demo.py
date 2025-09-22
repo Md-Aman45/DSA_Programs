@@ -20,17 +20,3 @@ else:
 
 print("No.", count)
 print("RevN", revNum)
-
-
-# # Logs...
-# import math
-
-# n = int(input("Enter a number: "))
-# revr = 0
-
-# if n == 0:
-#     count = 1
-# else:
-#     count = int(math.log10(n)) + 1
-
-# print("No. of digits:", count)
