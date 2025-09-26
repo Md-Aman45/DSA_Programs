@@ -52,16 +52,33 @@
 #     print("No. is not prime:-", n)
 
 
-# # gcd...
-a = 100
-b = 80
+# # Prime factor of a Number...
+n = int(input())
+dup = n
+import math
 
-while a != 0 and b != 0:
-    if a > b:
-        a = a % b
-    else:
-        b = b % a
-if a == 0:
-    print(b)
-else:
-    print(a)
+prime_factors = []
+
+for i in range(2, int(math.sqrt(n)) + 1):
+    if n % i == 0:
+        prime_factors.append(i)
+        while n % i == 0:
+            n = n // i
+
+if(n != 1):
+    prime_factors.append(n)
+print(f"Prime Factors of {dup} :- {prime_factors}")
+
+# # # gcd...
+# a = 100
+# b = 80
+
+# while a != 0 and b != 0:
+#     if a > b:
+#         a = a % b
+#     else:
+#         b = b % a
+# if a == 0:
+#     print(b)
+# else:
+#     print(a)

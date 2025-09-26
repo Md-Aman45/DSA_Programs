@@ -63,20 +63,46 @@ public class Demo {
         // System.out.println("No. is not prime:-" + " " + n);
         // }
 
-        // // gcp...
-        int a = 11;
-        int b = 8;
-        while (a > 0 && b > 0) {
-            if (a > b) {
-                a = a % b;
-            } else {
-                b = b % a;
+
+
+
+        // // Prime Factor of a Number
+        int n = sc.nextInt();
+        int dup = n;
+        ArrayList<Integer> prime_factors = new ArrayList<>();
+
+        for (int i = 2; i * i <= n; i++) {
+            if (n%i == 0) {
+                prime_factors.add(i);
+
+                while(n%i == 0) {
+                    n = n/i;
+                }
             }
         }
-        if (a == 0) {
-            System.out.println(b);
-        } else {
-            System.out.println(a);
+        if(n != 1) {
+            prime_factors.add(n);
         }
+        // System.out.println("Prime Factors of" + " " + dup + ":-" + " " + prime_factors);
+        System.out.printf("Prime Factors of %d :- %s%n", dup, prime_factors);
+         
+
+
+
+        // // gcp...
+        // int a = 11;
+        // int b = 8;
+        // while (a > 0 && b > 0) {
+        //     if (a > b) {
+        //         a = a % b;
+        //     } else {
+        //         b = b % a;
+        //     }
+        // }
+        // if (a == 0) {
+        //     System.out.println(b);
+        // } else {
+        //     System.out.println(a);
+        // }
     }
 }
