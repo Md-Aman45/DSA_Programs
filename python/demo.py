@@ -7,7 +7,7 @@
 # count = 0
 # sum = 0
 
-n = int(input())
+# n = int(input())
 # dup = n
 # while(n>0):
 #     lastDigit = n % 10
@@ -29,14 +29,39 @@ n = int(input())
 # print("RevN", revNum)
 
 
-# print All Divisions
-import math
-divisors = []
-for i in range(1, int(math.sqrt(n)) + 1):
-    if n%i == 0:
-        divisors.append(i)
-        if n // i != i:
-            divisors.append(n//i)
-divisors.sort()
-print(f"Numbers Divided by {n} :- {divisors}")
+# # print All Divisions
+# import math
+# divisors = []
+# for i in range(1, int(math.sqrt(n)) + 1):
+#     if n%i == 0:
+#         divisors.append(i)
+#         if n // i != i:
+#             divisors.append(n//i)
+# divisors.sort()
+# print(f"Numbers Divided by {n} :- {divisors}")
 
+
+# # Prime no...
+# count = 0
+# for i in range(1, n+1):
+#     if n%i == 0:
+#         count+=1
+# if(count == 2):
+#     print("No. is prime:-", n)
+# else:
+#     print("No. is not prime:-", n)
+
+
+# # gcd...
+a = 100
+b = 80
+
+while a != 0 and b != 0:
+    if a > b:
+        a = a % b
+    else:
+        b = b % a
+if a == 0:
+    print(b)
+else:
+    print(a)
