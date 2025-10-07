@@ -53,21 +53,21 @@
 
 
 # # Prime factor of a Number...
-n = int(input())
-dup = n
-import math
+# n = int(input())
+# dup = n
+# import math
 
-prime_factors = []
+# prime_factors = []
 
-for i in range(2, int(math.sqrt(n)) + 1):
-    if n % i == 0:
-        prime_factors.append(i)
-        while n % i == 0:
-            n = n // i
+# for i in range(2, int(math.sqrt(n)) + 1):
+#     if n % i == 0:
+#         prime_factors.append(i)
+#         while n % i == 0:
+#             n = n // i
 
-if(n != 1):
-    prime_factors.append(n)
-print(f"Prime Factors of {dup} :- {prime_factors}")
+# if(n != 1):
+#     prime_factors.append(n)
+# print(f"Prime Factors of {dup} :- {prime_factors}")
 
 # # # gcd...
 # a = 100
@@ -82,3 +82,41 @@ print(f"Prime Factors of {dup} :- {prime_factors}")
 #     print(b)
 # else:
 #     print(a)
+
+
+
+# # # Power Exponentiation...
+# x = -3
+# n = 9
+# m = n
+
+# ans = 1
+# while (n > 0):
+#         if (n % 2 == 1):
+#             ans = ans * x
+#             n = n - 1
+        
+#         else:
+#             n = n // 2
+#             x = x * x
+# if m < 0:
+#      ans = 1 // ans
+
+# print(ans)
+
+
+
+# # Sieve of Eratosthenes...
+import math
+n = int(input())
+prime = [1 for _ in range(n + 1)]
+prime[0] = prime[1] = 0
+
+for i in range(2, int(math.sqrt(n) + 1)):
+    if prime[i] == 1:
+        for j in range(i * i, n + 1, i):
+            prime[j] = 0
+
+for i in range(2, n+1):
+    if prime[i] == 1:
+        print(i, end=" ")

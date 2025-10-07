@@ -67,24 +67,24 @@ public class Demo {
 
 
         // // Prime Factor of a Number
-        int n = sc.nextInt();
-        int dup = n;
-        ArrayList<Integer> prime_factors = new ArrayList<>();
+        // int n = sc.nextInt();
+        // int dup = n;
+        // ArrayList<Integer> prime_factors = new ArrayList<>();
 
-        for (int i = 2; i * i <= n; i++) {
-            if (n%i == 0) {
-                prime_factors.add(i);
+        // for (int i = 2; i * i <= n; i++) {
+        //     if (n%i == 0) {
+        //         prime_factors.add(i);
 
-                while(n%i == 0) {
-                    n = n/i;
-                }
-            }
-        }
-        if(n != 1) {
-            prime_factors.add(n);
-        }
-        // System.out.println("Prime Factors of" + " " + dup + ":-" + " " + prime_factors);
-        System.out.printf("Prime Factors of %d :- %s%n", dup, prime_factors);
+        //         while(n%i == 0) {
+        //             n = n/i;
+        //         }
+        //     }
+        // }
+        // if(n != 1) {
+        //     prime_factors.add(n);
+        // }
+        // // System.out.println("Prime Factors of" + " " + dup + ":-" + " " + prime_factors);
+        // System.out.printf("Prime Factors of %d :- %s%n", dup, prime_factors);
          
 
 
@@ -104,5 +104,55 @@ public class Demo {
         // } else {
         //     System.out.println(a);
         // }
+
+
+        // double x = -3;
+        // double n = 5;
+        // double m = n;
+
+        // double ans = 1;
+
+        // while(n > 0) {
+        //     if(n % 2 == 1) {
+        //         ans = ans * x;
+        //         n = n - 1;
+        //     }
+        //     else {
+        //         n = n / 2;
+        //         x = x * x;
+        //     }
+        // }
+        // if(m < 0) {
+        //     ans = 1/ans;
+        // }
+
+        
+        // System.out.println(ans);
+        
+
+        // // Sieve of Eratosthenes...
+        int n = 30;
+        int[] prime = new int[n+1];
+        
+        for (int i = 0; i <= n; i++) {
+            prime[i] = 1;
+        }
+        
+        prime[0] = prime[1] = 0;
+
+
+        for (int i = 2; i * i <= n; i++) {
+            if (prime[i] == 1) {
+                for(int j = i*i; j <= n; j += i) {
+                    prime[j] = 0;
+                }
+            }
+        }
+
+        for (int i = 2; i <= n; i++) {
+            if (prime[i] == 1) {
+                System.out.print(i + " ");
+            }
+        }
     }
 }
