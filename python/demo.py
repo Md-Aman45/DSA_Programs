@@ -108,15 +108,38 @@
 
 # # Sieve of Eratosthenes...
 import math
-n = int(input())
-prime = [1 for _ in range(n + 1)]
-prime[0] = prime[1] = 0
 
-for i in range(2, int(math.sqrt(n) + 1)):
-    if prime[i] == 1:
-        for j in range(i * i, n + 1, i):
-            prime[j] = 0
 
-for i in range(2, n+1):
-    if prime[i] == 1:
-        print(i, end=" ")
+def get_sieve(n):
+    prime = [1 for _ in range(n + 1)]
+    prime[0] = prime[1] = 0
+
+    for i in range(2, int(math.sqrt(n) + 1)):
+        if prime[i] == 1:
+            for j in range(i * i, n + 1, i):
+                prime[j] = 0
+    return prime
+
+
+def func(queries):
+    right = max(r for _, r in queries)
+
+    prime = get_sieve(right)
+
+    for i in range (2, right + 1):
+        prime[i] += prime[i - 1]
+    
+    for l , r in queries:
+        ans = prime[r] - prime[l - 1]
+        print(ans)
+
+
+if __name__ == "__main__":
+    q = int(input())
+    queries = []
+
+    for _ in range(q):
+        l, r = map(int, input().split())
+        queries.append([l, r])
+    
+    func(queries)
