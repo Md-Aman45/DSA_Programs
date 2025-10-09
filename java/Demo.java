@@ -127,74 +127,142 @@ public class Demo {
             
             
             // // Sieve of Eratosthenes...
-            static int[] getSieve(int n) {
-                int[] prime = new int[n+1];
-                Arrays.fill(prime, 1);
+        //     static int[] getSieve(int n) {
+        //         int[] prime = new int[n+1];
+        //         Arrays.fill(prime, 1);
                 
-                // for (int i = 0; i <= n; i++) {
-                //     prime[i] = 1;
-                // }
-                prime[0] = prime[1] = 0;
+        //         // for (int i = 0; i <= n; i++) {
+        //         //     prime[i] = 1;
+        //         // }
+        //         prime[0] = prime[1] = 0;
                 
                 
-                for (int i = 2; i * i <= n; i++) {
-                    if (prime[i] == 1) {
-                        for(int j = i*i; j <= n; j += i) {
-                        prime[j] = 0;
+        //         for (int i = 2; i * i <= n; i++) {
+        //             if (prime[i] == 1) {
+        //                 for(int j = i*i; j <= n; j += i) {
+        //                 prime[j] = 0;
+        //             }
+        //         }
+        //     }
+        //     return prime;
+        // }
+
+        // static void func(List<int[]> queries) {
+        //     int right = 0;
+        //     for (int[] q : queries) {
+        //         right = Math.max(right, q[1]);
+        //     }
+
+        //     int[] prime = getSieve(right);
+
+        //     for (int i = 2; i <= right; i ++) {
+        //         prime[i] += prime[i - 1];
+        //     }
+
+        //     for (int q[] : queries) {
+        //         int l = q[0];
+        //         int r = q[1];
+        //         int cnt = prime[r] - prime[l - 1];
+        //         System.out.println(cnt);
+        //     }
+        // }
+
+
+
+        // public static void main(String[] args) {
+        //     Scanner sc = new Scanner(System.in);
+
+        //     if (!sc.hasNextInt()) {
+        //         System.out.println("No input found!");
+        //         return;
+        //     }
+
+
+        //     int q = sc.nextInt();
+
+        //     List<int[]> queries = new ArrayList<>();
+
+        //     for (int i = 0; i < q; i++) {
+        //         if (sc.hasNextInt()) {
+        //             int l = sc.nextInt();
+        //             int r = sc.nextInt();
+        //             queries.add(new int[]{l, r});
+        //         } else {
+        //             System.out.println("Not enough queries in input");
+        //             return;
+        //         }
+        //     }
+
+        // func(queries);
+        // sc.close();
+
+
+
+        // // SPF...
+        static void func(List<Integer> queries, int n) {
+            int[] spf = new int[n + 1];
+
+            for (int i = 1; i <= n; i++) {
+                spf[i] = i;
+            }
+
+            for (int i = 2; i * i <= n; i++) {
+                if(spf[i] == i) {
+                    for (int j = i * i; j <= n; j += i) {
+                        if (spf[j] == j) {
+                            spf[j] = i;
+                        }
                     }
                 }
             }
-            return prime;
+
+            for (int i = 0; i < queries.size(); i++) {
+                int num =  queries.get(i);
+
+                if (num <= 1) {
+                    System.out.println("Number " + num + " is not a valid input for prime factorization.");
+                    continue;
+                }
+
+                if (num > n) {
+                    System.out.println("Number " + num + " exceeds limit " + n);
+                    continue;
+                }
+
+                System.out.print("Prime factors of " + num + ": ");
+            
+                while(num != 1) {
+                    System.out.println(spf[num] + " ");
+                    num = num / spf[num];
+                }
+                System.out.println();
+            }
+
         }
 
-        static void func(List<int[]> queries) {
-            int right = 0;
-            for (int[] q : queries) {
-                right = Math.max(right, q[1]);
-            }
 
-            int[] prime = getSieve(right);
-
-            for (int i = 2; i <= right; i ++) {
-                prime[i] += prime[i - 1];
-            }
-
-            for (int q[] : queries) {
-                int l = q[0];
-                int r = q[1];
-                int cnt = prime[r] - prime[l - 1];
-                System.out.println(cnt);
-            }
-        }
+        
 
 
         public static void main(String[] args) {
             Scanner sc = new Scanner(System.in);
 
-            if (!sc.hasNextInt()) {
-                System.out.println("No input found!");
-                return;
-            }
-
-
+            System.out.print("Enter number of queries: ");
             int q = sc.nextInt();
 
-            List<int[]> queries = new ArrayList<>();
+            List<Integer> queries = new ArrayList<>();
+            System.out.print("Enter the numbers to factorize:");
 
             for (int i = 0; i < q; i++) {
-                if (sc.hasNextInt()) {
-                    int l = sc.nextInt();
-                    int r = sc.nextInt();
-                    queries.add(new int[]{l, r});
-                } else {
-                    System.out.println("Not enough queries in input");
-                    return;
-                }
+                queries.add(sc.nextInt());
             }
 
-        func(queries);
-        sc.close();
+            int n = 100;
+
+            func(queries, n);
+            sc.close();
+        }
 
 
     }
-}
+

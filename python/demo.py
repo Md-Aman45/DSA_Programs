@@ -106,40 +106,87 @@
 
 
 
-# # Sieve of Eratosthenes...
-import math
+# # # Sieve of Eratosthenes...
+# import math
 
 
-def get_sieve(n):
-    prime = [1 for _ in range(n + 1)]
-    prime[0] = prime[1] = 0
+# def get_sieve(n):
+#     prime = [1 for _ in range(n + 1)]
+#     prime[0] = prime[1] = 0
 
-    for i in range(2, int(math.sqrt(n) + 1)):
-        if prime[i] == 1:
-            for j in range(i * i, n + 1, i):
-                prime[j] = 0
-    return prime
+#     for i in range(2, int(math.sqrt(n) + 1)):
+#         if prime[i] == 1:
+#             for j in range(i * i, n + 1, i):
+#                 prime[j] = 0
+#     return prime
 
 
-def func(queries):
-    right = max(r for _, r in queries)
+# def func(queries):
+#     right = max(r for _, r in queries)
 
-    prime = get_sieve(right)
+#     prime = get_sieve(right)
 
-    for i in range (2, right + 1):
-        prime[i] += prime[i - 1]
+#     for i in range (2, right + 1):
+#         prime[i] += prime[i - 1]
     
-    for l , r in queries:
-        ans = prime[r] - prime[l - 1]
-        print(ans)
+#     for l , r in queries:
+#         ans = prime[r] - prime[l - 1]
+#         print(ans)
 
 
+# if __name__ == "__main__":
+#     q = int(input())
+#     queries = []
+
+#     for _ in range(q):
+#         l, r = map(int, input().split())
+#         queries.append([l, r])
+    
+#     func(queries)
+
+
+
+# # SPF...
+import math
+def func(quereies, n):
+    spf = [i for i in range(n + 1)]
+    
+    for i in range(2, int(math.sqrt(n) + 1)):
+        if(spf[i] == i):
+            for j in range(i * i, n + 1, i):
+                if(spf[j] == j):
+                    spf[j] = i
+
+    
+    
+    for num in queries:
+        if (num <= 1):
+            print(f"Number {num} is not a valid input for prime factorization.")
+            continue
+
+        if (num > n):
+            print(f"Number {num} exceeds limit {n}")
+            continue
+
+
+        print(f"Prime factors of {num}:", end=" ")
+
+        while(num != 1):
+            print(spf[num], end=" ")
+            num = num // spf[num]
+        print()
+
+    
 if __name__ == "__main__":
-    q = int(input())
+    n = int(input("Enter maximum number (n): "))
+    q = int(input("Enter number of queries: "))
+
     queries = []
+    print("Enter the numbers to factorize:")
 
     for _ in range(q):
-        l, r = map(int, input().split())
-        queries.append([l, r])
+        queries.append(int(input()))
     
-    func(queries)
+    
+
+    func(queries, n)
