@@ -2,7 +2,7 @@ package Day5;
 
 import java.util.*;
 
-// // Union of two sorted arrays...
+// // Union...
 public class Union {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
