@@ -81,5 +81,8 @@ public class Missing {
 
         int missing = XOR1 ^ XOR2;
         System.out.print("Missing number is: " + missing);
+
+
+        sc.close();
     }
 }
