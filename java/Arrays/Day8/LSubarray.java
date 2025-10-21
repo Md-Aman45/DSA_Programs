@@ -35,31 +35,59 @@ public class LSubarray {
 
 
 
-        // // better appraoch...
-        HashMap<Integer, Integer> preSumMap = new HashMap<>();
+        // // // better appraoch...
+        // HashMap<Integer, Integer> preSumMap = new HashMap<>();
 
-        int sum = 0;
+        // int sum = 0;
+        // int maxLen = 0;
+        // int k = 3;
+
+        // for (int i = 0; i < arr.length; i++) {
+        //     sum += arr[i];
+        //     if (sum == k) {
+        //         maxLen = i + 1;
+        //     }
+
+        //     int rem = sum - k;
+
+        //     if (preSumMap.containsKey(rem)) {
+        //         int len = i - preSumMap.get(rem);
+        //         maxLen = Math.max(maxLen, len);
+        //     }
+
+        //     preSumMap.putIfAbsent(sum, i);
+        // }
+
+        // System.out.print("Longest subarray length (using HashMap) = " + maxLen);
+
+
+
+
+
+        // // optimal approach...
+        int left = 0;
+        int right = 0;
+        int sum = arr[0];
         int maxLen = 0;
-        int k = 3;
+        int k = 6;
 
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
+        while (right < n) {
+            while (left <= right && sum > k) {
+                sum -= arr[left];
+                left++;
+            }
+
             if (sum == k) {
-                maxLen = i + 1;
+                maxLen = Math.max(maxLen, right - left + 1);
             }
-
-            int rem = sum - k;
-
-            if (preSumMap.containsKey(rem)) {
-                int len = i - preSumMap.get(rem);
-                maxLen = Math.max(maxLen, len);
+            right++;
+            
+            if (right < n) {
+                sum += arr[right];
             }
-
-            preSumMap.putIfAbsent(sum, i);
         }
 
-        System.out.print("Longest subarray length (using HashMap) = " + maxLen);
-
+        System.out.print("Longest subarray length (using optimal): " + maxLen);
 
 
         sc.close();

@@ -18,24 +18,49 @@ arr = list(map(int, input(f"Enter {n} numbers: ").split()))
 
 
 # # better approach (using hashMap)...
-preSumMap = {}
+# preSumMap = {}
 
-sum = 0
+# sum = 0
+# maxLen = 0
+# k = 3
+
+# for i in range(n):
+#     sum += arr[i]
+#     if sum == k:
+#         maxLen = i + 1
+    
+#     rem = sum - k
+
+#     if rem in preSumMap:
+#         len = i - preSumMap[rem]
+#         maxLen = max(maxLen, len)
+    
+#     if sum not in preSumMap:
+#         preSumMap[sum] = i
+
+# print("Longest subarray length (using HashMap) = ", maxLen)
+
+
+
+
+
+# # optimal approach...
+left = right = 0
+sum = arr[0]
 maxLen = 0
-k = 3
+k = 6
 
-for i in range(n):
-    sum += arr[i]
+while right < n:
+    while left <= right and sum > k:
+        sum -= arr[left]
+        left += 1
+
     if sum == k:
-        maxLen = i + 1
+        maxLen = max(maxLen, right - left + 1)
     
-    rem = sum - k
+    right += 1
 
-    if rem in preSumMap:
-        len = i - preSumMap[rem]
-        maxLen = max(maxLen, len)
-    
-    if sum not in preSumMap:
-        preSumMap[sum] = i
+    if (right < n):
+        sum += arr[right]
 
-print("Longest subarray length (using HashMap) = ", maxLen)
+print("Longest subarray length (using optimal): ", maxLen)
