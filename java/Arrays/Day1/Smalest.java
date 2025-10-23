@@ -39,5 +39,7 @@ public class Smalest {
 
         System.out.print("Second Smallest number is: " + ssmallest);
 
+        sc.close();
+
     }
 }

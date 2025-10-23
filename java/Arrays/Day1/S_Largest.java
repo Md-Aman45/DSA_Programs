@@ -28,5 +28,7 @@ public class S_Largest {
         }
 
         System.out.println("Second Largest Number is: " + slargest);
+
+        sc.close();
     }
 }

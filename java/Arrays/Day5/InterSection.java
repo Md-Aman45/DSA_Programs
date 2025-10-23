@@ -92,5 +92,7 @@ public class InterSection {
         }
 
         System.out.print("Intesection: " + ans);
+
+        sc.close();
     }
 }
