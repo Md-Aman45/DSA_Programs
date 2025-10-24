@@ -87,6 +87,7 @@ public class Majority {
             System.out.println("No majority element found.");
         }
 
+        
         sc.close();
     }
 }
