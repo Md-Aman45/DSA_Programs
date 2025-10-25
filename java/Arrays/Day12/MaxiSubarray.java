@@ -22,7 +22,7 @@ public class MaxiSubarray {
         int start = 0, ansStart = -1, ansEnd = -1;
 
         for (int i = 0; i < n; i++) {
-            sum += arr[i];
+            sum = sum + arr[i];
 
             if (sum > maxi) {
                 maxi = sum;
@@ -46,6 +46,8 @@ public class MaxiSubarray {
             }
             System.out.println();
         }
+
+
 
 
         sc.close();
