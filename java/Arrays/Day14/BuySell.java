@@ -33,7 +33,7 @@ public class BuySell {
 
         
         
-        // // next version
+        // // next version...
         int mini = arr[0];
         int profit = 0;
         int buyPrice = arr[0], sellPrice = arr[0];
@@ -53,6 +53,7 @@ public class BuySell {
         System.out.println("Buy at: " + buyPrice);
         System.out.println("Sell at: " + sellPrice);
         System.out.println("Maximum Profit you can achieve is: " + profit);
+
 
 
 
