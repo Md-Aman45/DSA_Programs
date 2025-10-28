@@ -47,6 +47,7 @@ public class Leaders {
             maxi = Math.max(maxi, arr[i]);
         }
 
+        // for original...
         // Collections.reverse(ans);
 
         System.out.println("Leaders in the Array: " + ans);
