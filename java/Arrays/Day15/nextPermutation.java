@@ -13,6 +13,7 @@ public class nextPermutation {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
+        
 
 
         // // optimal approach for next permutation...
@@ -41,7 +42,7 @@ public class nextPermutation {
             }
 
 
-            // Step 4: Reverse the subarray to the right of index
+            // Step 4: Reverse the subarray to the right of index...
             reverse(arr, index + 1, n - 1);
         }
 
@@ -56,8 +57,7 @@ public class nextPermutation {
 
 
 
-
-    // Utility to swap two elements
+    // Utility to swap two elements...
     public static void swap(int[] arr, int i , int j) {
         int temp = arr[j];
         arr[j] = arr[i];
@@ -65,7 +65,7 @@ public class nextPermutation {
     }
 
 
-
+    // Utility to reverse a portion of the array...
     public static void reverse(int[] arr, int start, int end) {
         while (start < end) {
             swap(arr, start, end);
