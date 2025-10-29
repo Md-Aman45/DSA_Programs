@@ -30,7 +30,7 @@ public class LConsecutive {
         //     longest = Math.max(longest, cnt);
         // }
 
-        // System.out.println("Longest Consecutive Sequence length = " + longest);
+        // System.out.println("Longest Consecutive Sequence length (brute force) =" + longest);
 
 
 
@@ -55,7 +55,7 @@ public class LConsecutive {
         // }
 
 
-        // System.out.println("Longest Consecutive Sequence length with better approach = " + longest);
+        // System.out.println("Longest Consecutive Sequence length (better approach) = " + longest);
 
 
 
@@ -84,7 +84,8 @@ public class LConsecutive {
                 longest = Math.max(longest, cnt);
             }
         }
-        System.out.println("Longest Consecutive Sequence length with optimal approach = " + longest);
+        System.out.println("Longest Consecutive Sequence length (optimal approach) = " + longest);
+
 
 
         sc.close();
@@ -98,8 +99,7 @@ public class LConsecutive {
 
 
 
-
-    // // this linear search code is for brute approach...
+    // // This linear search code is for brute approach...
     // public static boolean ls(int arr[], int num) {
     //     for (int i = 0; i < arr.length; i++) {
     //         if (arr[i] == num) {
