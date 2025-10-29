@@ -1,4 +1,3 @@
-package Day16;
 import java.util.*;
 
 public class LConsecutive {
