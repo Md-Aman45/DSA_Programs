@@ -55,6 +55,7 @@ public class RotateImage {
         }
 
         // reverse every row...
+        // -> clockwise rotate...
         for (int i = 0; i < n; i++) {
             int left = 0, right = n - 1;
 
@@ -66,6 +67,20 @@ public class RotateImage {
                 right--;
             }
         }
+
+
+        // -> antiClockwise rotate...
+        // for (int j = 0; j < n; j++) {
+        //     int top = 0, bottom = n - 1;
+
+        //     while (top < bottom) {
+        //         int temp = matrix[top][j];
+        //         matrix[top][j] = matrix[bottom][j];
+        //         matrix[bottom][j] = temp;
+        //         top++;
+        //         bottom--;
+        //     }
+        // }
 
 
 
