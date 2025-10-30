@@ -30,7 +30,6 @@ public class RotateImage {
 
 
 
-
         // -------- BRUTE APPROACH FOR ROTATE IMAGE --------
         // int[][] ans = new int[n][n];
 
@@ -45,7 +44,8 @@ public class RotateImage {
 
 
         // -------- OPTIMAL APPROACH --------
-        // transpose the image...
+
+        // Transpose the image...
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
                 int temp = matrix[i][j];
