@@ -25,14 +25,15 @@ public class SpiralMatrix {
 
 
 
-        // -------- OPTIMAL APPROACH --------
+        // -------- OPTIMAL APPROACH  for (Spiral Traversal of a matrix) --------
         int left = 0, right = m - 1;
         int top = 0, bottom = n - 1;
 
         ArrayList<Integer> ans = new ArrayList<>();
+        
 
 
-        // logic ------ (right -> bottom -> left -> top) ------...
+        // logic ------ (right -> bottom -> left -> top) ------
         while (top <= bottom && left <= right) {
             // right...
             for (int i = left; i <= right; i++) {
