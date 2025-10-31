@@ -14,6 +14,7 @@ public class NoOfSubarray {
             arr[i] = sc.nextInt();
         }
 
+        
         System.out.print("Enter the value of k (target sum): ");
         int k = sc.nextInt();
 
@@ -73,6 +74,7 @@ public class NoOfSubarray {
         System.out.printf("Total number of subarrays with sum %d is: %d%n", k, cnt);
         sc.close();
 
+    
 
 
     }
