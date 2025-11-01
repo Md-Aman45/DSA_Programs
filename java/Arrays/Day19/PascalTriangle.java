@@ -16,12 +16,7 @@ import java.util.*;
 //         System.out.print("Enter column number (cols): ");
 //         int r = sc.nextInt();
         
-        
-        
-//         // ------------------- PASCAL TRIANGLE -------------------
 
-
-//     // Q1) Given row and column, find the element at that place...    (ex :- r = 5, c = 3, ans = 6 )
 //         // Since Pascal's triangle rows & columns are usually 1-indexed:
 //         // Element at (n, r) = nCr = n! / (r! * (n - r)!)
 //         // But we can calculate efficiently without factorials:
@@ -50,7 +45,7 @@ import java.util.*;
 
 
 
-// --------- Q2) Print any num of row of pascal triangle.  (ex:- n = 5, ans = 1 4 6 4 1) ----------
+// --------- Q2) Print any num of row of pascal triangle.  (ex:- n = 5, ans = 1 4 6 4 1) -----------
 // public class PascalTriangle {
 //     public static void main(String[] args) {
 //          Scanner sc = new Scanner(System.in);
@@ -120,7 +115,7 @@ public class PascalTriangle {
 
     }
 
-
+    // -------- OPTIMAL APPROACH --------
     public static List<Long> generateRow(int n) {
         ArrayList<Long> row = new ArrayList<>();
         long ans = 1;
