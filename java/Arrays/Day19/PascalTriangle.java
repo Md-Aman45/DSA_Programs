@@ -100,7 +100,7 @@ public class PascalTriangle {
 
         ArrayList<List<Long>> ans = new ArrayList<>();
 
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i <= n; i++) {  
             ans.add(generateRow(i));
         }
 
