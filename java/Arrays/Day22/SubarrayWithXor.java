@@ -21,7 +21,6 @@ public class SubarrayWithXor {
 
 
 
-
         // -------- BRUTE APPROACH --------
         // int cnt = 0;
         // for (int i = 0; i < n; i++) {
@@ -35,6 +34,8 @@ public class SubarrayWithXor {
                 
         //     }
         // }
+
+
 
 
 
@@ -70,8 +71,7 @@ public class SubarrayWithXor {
 
 
 
-
-
+        
 
         // Output section...
         System.out.printf("Total number of subarrays with XOR %d is: %d%n", k, cnt);

@@ -20,6 +20,7 @@ public class NoOfSubarray {
 
 
 
+        
         // -------- BRUTE APPROACH FOR Number of Subarray --------
         // int cnt = 0;
 

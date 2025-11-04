@@ -46,5 +46,5 @@ for i in range(n):
 
 
 
-print(f"Number of subarrays with sum = {k} is: {cnt}")
+print(f"Number of subarrays with sum {k} is: {cnt}")
         
