@@ -30,16 +30,16 @@ arr = list(map(int, input(f"Enter {n} numbers: ").split()))
 # st = set()
 
 # for i in range(n):
-#     hash = set()
+#     seen = set()
 #     for j in range(i + 1, n):
 #         k = - (arr[i] + arr[j])
 
-#         if k in hash:
+#         if k in seen:
 #             temp = [arr[i], arr[j], k]
 #             temp.sort()
 #             st.add(tuple(temp))
 #         else:
-#             hash.add(arr[j])
+#             seen.add(arr[j])
 
 
 # if not st:

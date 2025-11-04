@@ -47,6 +47,7 @@ public class FourSum {
 
 
 
+
         // -------- BETTER APPROACH --------
         // HashSet<List<Integer>> st = new HashSet<>();
 
@@ -101,8 +102,6 @@ public class FourSum {
                         while (k < l && arr[k] == arr[k - 1]) k++;
                         while (k < l && arr[l] == arr[l + 1]) l--;
 
-
-
                     } else if (sum < target) {
                         k++;
                     } else {
@@ -111,6 +110,8 @@ public class FourSum {
                 }
             }
         }
+
+
 
 
 
