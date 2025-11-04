@@ -54,7 +54,7 @@ public class SubarrayWithXor {
 
 
 
-        // -------- OPTIMAL APPROACH --------
+        // -------- OPTIMAL APPROACH ---------
         HashMap<Integer, Integer> mpp = new HashMap<>();
         mpp.put(0, 1);
 

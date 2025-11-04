@@ -20,7 +20,7 @@ public class FourSum {
 
 
 
-        // -------- BRUTE APPROACH FOR 4 SUM --------
+        // -------- BRUTE APPROACH FOR 4 SUM ---------
         // HashSet<List<Integer>> st = new HashSet<>();
         // for (int i = 0; i < n; i++) {
         //     for (int j = i + 1; j < n; j++) {
@@ -48,7 +48,7 @@ public class FourSum {
 
 
 
-        // -------- BETTER APPROACH --------
+        // -------- BETTER APPROACH ---------
         // HashSet<List<Integer>> st = new HashSet<>();
 
         // for (int i = 0; i < n; i++) {
@@ -77,7 +77,7 @@ public class FourSum {
 
 
 
-        // -------- OPTIMAL APPROACH --------
+        // -------- OPTIMAL APPROACH ---------
         Arrays.sort(arr);
         List<List<Integer>> st = new ArrayList<>();
 
