@@ -6,7 +6,7 @@ k = int(input("Enter the value of k: "))
 
 
 
-# # -------- BRUTE APPROACH --------
+# -------- BRUTE APPROACH --------
 # cnt = 0
 # for i in range(n):
 #     for j in range(i, n):
