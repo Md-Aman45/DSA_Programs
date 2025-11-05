@@ -25,6 +25,7 @@ public class MergeTwoArrayWES {
 
 
 
+
         // -------- BRUTE APPROACH FOR MERGE 2 SORTED ARRAY WITH USING EXTRA SPACE(WES)  ---------
         // int[] arr3 = new int[n + m];
         // int left = 0, right = 0;
@@ -59,6 +60,9 @@ public class MergeTwoArrayWES {
 
 
 
+
+
+
         // -------- FIRST OPTIMAL APPROACH FOR MERGE 2 SORTED ARRAY WITHOUT USING EXTRA SPACE(WES) ---------
         // int left = n - 1, right = 0;
 
@@ -80,7 +84,7 @@ public class MergeTwoArrayWES {
 
 
         // -------- SECOND OPTIMAL APPROACH FOR MERGE 2 SORTED ARRAY WITHOUT USING EXTRA SPACE(WES) ---------
-        // // usign gap method (shell sort)
+        // // Usign gap method (shell sort)
         int len = n + m;
         int gap = (len / 2) + (len % 2);
 
@@ -123,10 +127,6 @@ public class MergeTwoArrayWES {
 
 
 
-
-
-
-
         // Print results
         System.out.println("Merged arr1: " + Arrays.toString(arr1));
         System.out.println("Merged arr2: " + Arrays.toString(arr2));
@@ -134,7 +134,8 @@ public class MergeTwoArrayWES {
         sc.close();
     }
 
-
+    
+    // swap function...
     public static void swap(int[] arr1, int[] arr2, int left, int right) {
         int temp = arr1[left];
         arr1[left] = arr2[right];
