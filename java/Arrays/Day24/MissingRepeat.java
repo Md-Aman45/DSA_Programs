@@ -34,23 +34,50 @@ public class MissingRepeat {
 
 
         // -------- BETTER APPROACH ---------
-        int[] hash = new int[n + 1];
+        // int[] hash = new int[n + 1];
 
-        for (int i = 0; i < n; i++ ){
-            hash[arr[i]]++;
+        // for (int i = 0; i < n; i++ ){
+        //     hash[arr[i]]++;
+        // }
+
+        // int repeating = -1;
+        // int missing = -1;
+
+        // for (int i = 1; i <= n; i++) {
+        //     if (hash[i] == 2) repeating = i;
+        //     else if (hash[i] == 0) missing = i;
+        // }
+
+
+
+
+
+
+        // -------- OPTIMAL APPROACH ---------
+        long s = 0;
+        long s2 = 0;
+        long sn = (long) (n * (n + 1)) / 2;
+        long s2n = (long) (n * (n + 1) * (2 * n + 1)) / 6;
+
+        for (int i = 0; i < n; i++) {
+            s += arr[i];
+            s2 += (long) arr[i] * (long) arr[i];
         }
 
-        int repeating = -1;
-        int missing = -1;
+        long val1 = s - sn;
+        long val2 = s2 - s2n;
 
-        for (int i = 1; i <= n; i++) {
-            if (hash[i] == 2) repeating = i;
-            else if (hash[i] == 0) missing = i;
-        }
+        val2 = val2 / val1;
+
+        long x = (long) (val1 + val2) / 2;
+        long y = (long) x - val1;
 
 
-        System.out.println("Repeating number: " + repeating);
-        System.out.println("Missing number: " + missing);
+
+
+
+        System.out.println("Repeating number: " + x);
+        System.out.println("Missing number: " + y);
 
         sc.close();
 
