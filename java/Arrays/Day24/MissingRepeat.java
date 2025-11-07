@@ -33,7 +33,7 @@ public class MissingRepeat {
 
 
 
-        // -------- BETTER APPROACH ---------
+        // -------- BETTER APPROACH ----------
         // int[] hash = new int[n + 1];
 
         // for (int i = 0; i < n; i++ ){
@@ -53,7 +53,7 @@ public class MissingRepeat {
 
 
 
-        // -------- OPTIMAL APPROACH ---------
+        // -------- OPTIMAL APPROACH ----------
         long s = 0;
         long s2 = 0;
         long sn = (long) (n * (n + 1)) / 2;

@@ -36,7 +36,8 @@ public class CountInversion {
 
 
 
-        // -------- OPTIMAL APPROACH ----------
+        
+        // -------- OPTIMAL APPROACH -----------
         System.out.println("Inversion Count: " + mergeSort(arr, 0, n - 1));
 
         sc.close();
@@ -44,7 +45,7 @@ public class CountInversion {
 
 
 
-    // -------- OPTIMAL APPROACH ----------
+    // -------- OPTIMAL APPROACH -----------
     private static int merge(int[] arr, int low, int mid, int high) {
         List<Integer> temp = new ArrayList<>();
         int left = low;
@@ -79,6 +80,10 @@ public class CountInversion {
 
         return cnt;
     }
+
+
+
+
 
     private static int mergeSort(int[] arr, int low, int high) {
         int cnt = 0;

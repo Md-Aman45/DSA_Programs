@@ -4,7 +4,7 @@ arr = list(map(int, input(f"Enter {n} numbers: ").split()))
 
 
 
-# # -------- BRUTE FORCE APPROACH ---------
+# -------- BRUTE FORCE APPROACH ---------
 # repeating = -1
 # missing = -1
 
