@@ -15,7 +15,7 @@ public class MissingRepeat {
         }
 
 
-        // -------- BRUTE APPROACH ---------
+        // -------- BRUTE APPROACH ----------
         // int repeating = -1;
         // int missing = -1;
 
@@ -71,7 +71,6 @@ public class MissingRepeat {
 
         long x = (long) (val1 + val2) / 2;
         long y = (long) x - val1;
-
 
 
 
