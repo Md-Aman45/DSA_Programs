@@ -69,7 +69,7 @@ print("Reverse Pairs:", merge_sort(arr, 0, n - 1))
 
 
 
-# # -------- BRUTE FORCE APPROACH ---------
+# -------- BRUTE FORCE APPROACH ---------
 # cnt = 0
 # for i in range(n - 1):
 #     for j in range(i + 1, n):
