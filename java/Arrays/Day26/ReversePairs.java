@@ -102,6 +102,5 @@ public class ReversePairs {
         merge(arr, low, mid, high);
 
         return cnt;
-
     }
 }
