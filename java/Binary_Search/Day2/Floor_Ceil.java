@@ -22,8 +22,50 @@ public class Floor_Ceil {
 
 
         // ---------- Floor ----------
-        int ans = -1;
-        
+        // floor -> largest no. in array <= x....
+        // int floor = -1;
+        // int low = 0, high = n - 1;
+
+        // while (low <= high) {
+        //     int mid = (low + high) / 2;
+
+        //     if (arr[mid] <= x) {
+        //         floor = arr[mid];
+        //         low = mid + 1;
+        //     }
+        //     else {
+        //         high = mid - 1;
+        //     }
+        // }
+
+        // System.out.println("Floor = " + floor);
+
+
+
+
+
+
+        // ---------- Ceil ----------
+        // ceil -> smallest no. in array >= x...
+        int low = 0, high = n - 1;
+        int ceil = -1;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+
+
+            if (arr[mid] >= x) {
+                ceil = arr[mid];
+                high = mid - 1;
+            }
+            else {
+                low = mid + 1;
+            }
+        }
+
+        System.out.println("Ceil = " + ceil);
+
+        sc.close();
 
     }
 }
