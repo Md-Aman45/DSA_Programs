@@ -1,4 +1,3 @@
-package Binary_Search.Day1;
 import java.util.*;
 
 public class Binary_Search {
