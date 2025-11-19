@@ -87,6 +87,8 @@ public class FirstAndLast {
 
 
 
+        
+
 
         // Use functions
         int first = firstOccurrence(arr, n, x);
@@ -145,5 +147,8 @@ public class FirstAndLast {
 
         return last;
     }
+
+
+
 
 }
