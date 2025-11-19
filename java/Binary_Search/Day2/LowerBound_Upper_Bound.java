@@ -1,4 +1,4 @@
-package Binary_Search.Day2;
+package Day2;
 import java.util.*;
 
 public class LowerBound_Upper_Bound {
