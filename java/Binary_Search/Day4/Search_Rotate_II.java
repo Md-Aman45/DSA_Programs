@@ -1,7 +1,7 @@
 package Day4;
 import java.util.*;
 
-public class Search_Rotate_I {
+public class Search_Rotate_II {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -17,16 +17,14 @@ public class Search_Rotate_I {
         System.out.print("Enter target: ");
         int target = sc.nextInt();
 
-        int ans = search_rotate(arr, n, target);
-        System.out.println("Index: " + ans);
+        boolean ans = search_rotate_dup(arr, n, target);
+        System.out.println("Found: " + ans);
 
         sc.close();
     }
 
 
-
-
-    public static int search_rotate(int[] arr, int n, int target) {
+    public static boolean search_rotate_dup(int[] arr, int n, int target) {
         int low = 0;
         int high = n - 1;
 
@@ -34,7 +32,14 @@ public class Search_Rotate_I {
             int mid = (low + high) / 2;
 
             if (arr[mid] == target)
-                return mid;
+                return true;
+
+
+            if (arr[low] == arr[mid] && arr[mid] == arr[high]) {
+                low++;
+                high--;
+                continue;
+            }
 
             // Left sorted portion...
             if (arr[low] <= arr[mid]) {
@@ -54,6 +59,6 @@ public class Search_Rotate_I {
             }
         }
 
-        return -1;
+        return false;
     }
 }
