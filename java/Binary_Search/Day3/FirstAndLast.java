@@ -1,5 +1,4 @@
 package Day3;
-
 import java.util.*;
 
 public class FirstAndLast {
@@ -87,7 +86,7 @@ public class FirstAndLast {
 
 
 
-        
+
 
 
         // Use functions
