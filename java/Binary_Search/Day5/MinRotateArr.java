@@ -31,22 +31,27 @@ public class MinRotateArr {
         while (low <= high) {
             int mid = (low + high) / 2;
 
+            // If array from low to high is already sorted...
             if (arr[low] <= arr[high]) {
                 ans = Math.min(ans, arr[low]);
                 break;
             }
 
-            else if (arr[low] <= arr[mid]) {
+
+            // Left half is sorted...
+            if (arr[low] <= arr[mid]) {
                 ans = Math.min(ans, arr[low]);
                 low = mid + 1;
             }
 
+            // Right half is sorted...
             else {
                 ans = Math.min(ans, arr[mid]);
                 high = mid - 1;
             }
         }
 
+        
         return ans;
     }
 }
