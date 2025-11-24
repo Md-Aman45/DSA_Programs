@@ -29,7 +29,9 @@ public class PeakElement {
         // }
 
 
+
         int ans = peak_element(arr, n);
+
         if (ans != -1) {
             System.out.println("Peak Element found at index " + ans + " with value " + arr[ans] + ".");
         } else {
@@ -43,11 +45,11 @@ public class PeakElement {
 
     // ----------- Binary Search -----------
     public static int peak_element(int[] arr, int n) {
-        if (n == 1) return arr[0];
+        if (n == 1) return 0;
 
-        if (arr[0] > arr[1]) return arr[0];
+        if (arr[0] > arr[1]) return 0;
 
-        if (arr[n - 1] > arr[n - 2]) return arr[n - 1];
+        if (arr[n - 1] > arr[n - 2]) return n - 1;
 
 
         int low = 1, high = n - 2;
@@ -65,6 +67,7 @@ public class PeakElement {
             // for multiple peak...
             else high = mid - 1;
         }
+
 
         return -1;
     }
