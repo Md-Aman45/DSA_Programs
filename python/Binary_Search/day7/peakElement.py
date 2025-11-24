@@ -21,8 +21,13 @@ def peak_element(arr, n):
             low = mid + 1
         
         # Only for 1 peak element...
-        elif arr[mid] > arr[mid + 1]:
+        # elif arr[mid] > arr[mid + 1]:
+        #     high = mid - 1
+
+        # for multiple peak element...
+        else:
             high = mid - 1
+
     
     return -1
 
