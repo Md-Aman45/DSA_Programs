@@ -6,7 +6,7 @@ public class Sqrt {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("No.:- ");
-        long n = (long) sc.nextLong();
+        long n = sc.nextLong();
         long ans = 1;
 
 
@@ -40,7 +40,8 @@ public class Sqrt {
             }
         }
 
-        System.out.println("Square root (integer part) = " + high);
+        // System.out.println("Square root (integer part) = " + high);
+        System.out.println("Square root (integer part) = " + ans);
 
 
 
