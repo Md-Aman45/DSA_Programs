@@ -79,6 +79,7 @@ public class MBouquetsDays {
         else {
             System.out.println("Minimum days required: " + ans);
         }
+        
 
         sc.close();
     }
