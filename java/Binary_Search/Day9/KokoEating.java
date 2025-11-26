@@ -12,7 +12,7 @@ public class KokoEating {
         }
 
         return maxi;
-    }
+    }   
 
     // Function to calculate total hours needed at speed k...
     public int calculateHours(int[] piles, int k) {
@@ -48,7 +48,9 @@ public class KokoEating {
     }
 
 
-    
+
+
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -56,7 +58,7 @@ public class KokoEating {
         int n = sc.nextInt();
 
         int[] piles = new int[n];
-        System.out.println("Enter pile sizes:");
+        System.out.print("Enter pile sizes: ");
         for (int i = 0; i < n; i++) {
             piles[i] = sc.nextInt();
         }
