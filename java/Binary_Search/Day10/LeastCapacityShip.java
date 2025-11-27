@@ -31,12 +31,14 @@ public class LeastCapacityShip {
 
 
     public int leastCapacityDays(int[] weight, int days) {
-        int n = weight.length;
-        int maxi = Integer.MIN_VALUE;
+        // int n = weight.length;
+        // int maxi = Integer.MIN_VALUE;
 
-        for (int i = 0; i < n; i++) {
-            maxi = Math.max(maxi, weight[i]);
-        }
+        // for (int i = 0; i < n; i++) {
+        //     maxi = Math.max(maxi, weight[i]);
+        // }
+
+        int maxi = Arrays.stream(weight).max().getAsInt();
 
         int low = maxi;
         int high = sumOfTotal(weight);
@@ -75,7 +77,7 @@ public class LeastCapacityShip {
 
         LeastCapacityShip obj = new LeastCapacityShip();
         int ans = obj.leastCapacityDays(weight, days);
-        System.out.println("Minimum ship capacity needed = " + ans + " " + "days.");
+        System.out.println("Minimum ship capacity needed = " + ans);
 
 
         sc.close();
