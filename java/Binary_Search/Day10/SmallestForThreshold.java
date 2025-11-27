@@ -121,6 +121,9 @@ public class SmallestForThreshold {
         System.out.println("Smallest Divisor = " + ans);
 
 
+
+        
+
         sc.close();
     }
 }
