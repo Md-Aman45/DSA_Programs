@@ -46,7 +46,7 @@ public class KMissingNumber {
             else high = mid - 1;
         }
 
-        return (high + 1 + k);
-        // return low + k;
+        // return (high + 1 + k);
+        return low + k;
     }
 }
