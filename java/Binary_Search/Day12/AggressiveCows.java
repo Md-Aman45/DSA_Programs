@@ -20,18 +20,37 @@ public class AggressiveCows {
 
 
     // ---------- Linear Search ----------
+    // public int aggressiveCows(int[] arr, int cows) {
+    //     Arrays.sort(arr);
+    //     int n = arr.length;
+    //     int n1 = arr[n - 1] - arr[0];
+
+    //     for (int i = 1; i <= n1; i++) {
+    //         if (canWePlace(arr, i, cows) == true) continue;
+
+    //         else return (i - 1);
+    //     }
+
+    //     return -1;
+    // }
+
+
+    // ---------- Binary Search ----------
     public int aggressiveCows(int[] arr, int cows) {
         Arrays.sort(arr);
         int n = arr.length;
-        int n1 = arr[n - 1] - arr[0];
 
-        for (int i = 1; i <= n1; i++) {
-            if (canWePlace(arr, i, cows) == true) continue;
+        int low = 1, high = arr[n - 1] - arr[0];
 
-            else return (i - 1);
+        while (low <= high) {
+            int mid = (low + high) / 2;
+
+            if (canWePlace(arr, mid, cows) == true) low = mid + 1;
+
+            else high = mid - 1;
         }
 
-        return -1;
+        return high;
     }
 
 
