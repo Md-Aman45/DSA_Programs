@@ -37,18 +37,32 @@ public class AllocateBooks {
         int high = totalSum(arr);
 
 
-
-
-
-
         // ---------- Linear Search ----------
-        for (int pages = low; pages <= high; pages++) {
-            int requiredStudents = countStudents(arr, pages);
+        // for (int pages = low; pages <= high; pages++) {
+        //     int requiredStudents = countStudents(arr, pages);
 
-            if (requiredStudents <= m) return pages;
+        //     if (requiredStudents <= m) return pages;
+        // }
+
+        // return -1;
+
+
+
+
+
+
+
+        // ---------- Binary Search ----------
+        while (low <= high) {
+            int mid = (low + high) / 2;
+
+            int requireStudents = countStudents(arr, mid);
+
+            if (requireStudents > m) low = mid + 1;
+            
+            else high = mid - 1;
         }
-
-        return -1;
+        return low;
     }
 
 
