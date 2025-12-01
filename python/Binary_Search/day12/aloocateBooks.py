@@ -12,12 +12,12 @@ def countStudents(arr, pages):
     return students
 
 
-def totalSum(arr):
-    total = 0
-    for num in arr:
-        total += num
+# def totalSum(arr):
+#     total = 0
+#     for num in arr:
+#         total += num
     
-    return total
+#     return total
 
 
 def findPages(arr, n, m):
@@ -25,7 +25,8 @@ def findPages(arr, n, m):
         return -1
     
     low = max(arr)
-    high = totalSum(arr)
+    # high = totalSum(arr)
+    high = sum(arr)
 
 
 
