@@ -33,13 +33,29 @@ public class PainterPartition {
         int high = totalSum(arr);
 
         // ---------- Linear Search ----------
-        for (int units = low; units <= high; units++) {
-            int requirePainters = countPainters(arr, units);
+        // for (int units = low; units <= high; units++) {
+        //     int requirePainters = countPainters(arr, units);
 
-            if (requirePainters <= k) return units;
+        //     if (requirePainters <= k) return units;
+        // }
+
+        // return -1;
+
+
+
+
+        // ---------- Binary Search ----------
+        while (low <= high) {
+            int mid = (low + high) / 2;
+
+            int requirePainters = countPainters(arr, mid);
+
+            if (requirePainters > k) low = mid + 1;
+
+            else high = mid - 1;
         }
 
-        return -1;
+        return low;
     }
 
 
