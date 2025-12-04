@@ -2,45 +2,82 @@ package Day14;
 import java.util.*;
 
 public class GasStation {
+    // public double minimizeMaxDistance(int[] arr, int k) {
+    //     int n = arr.length;
+
+    //     if (n < 2) return 0.0;
+
+
+
+    //     class Segment {
+    //         double baseLen;
+    //         int stations;
+
+    //         Segment(double baseLen) {
+    //             this.baseLen = baseLen;
+    //             this.stations = 0;
+    //         }
+
+    //         double currentMaxSegmentLength() {
+    //             return baseLen / (stations + 1);
+    //         }
+    //     }
+
+
+    //     PriorityQueue<Segment> pq = new PriorityQueue<>(
+    //         (a, b) -> Double.compare(b.currentMaxSegmentLength(), a.currentMaxSegmentLength())
+    //     );
+
+
+    //     for (int i = 0; i < n - 1; i++) {
+    //         double diff = arr[i + 1] - arr[i];
+    //         pq.offer(new Segment(diff));
+    //     }
+
+    //     for (int gasStation = 0; gasStation < k; gasStation++) {
+    //         Segment seg = pq.poll();
+    //         seg.stations++;
+    //         pq.offer(seg);
+    //     }
+
+    //     return pq.peek().currentMaxSegmentLength();
+    // }
+
+
+
+
+
+
+    // ---------- Binary Search ----------
+    private int requiredStations(int[] arr, double maxDist) {
+        int count = 0;
+        for (int i = 0; i < arr.length - 1; i++) {
+            double diff = arr[i + 1] - arr[i];
+            count += (int)Math.ceil(diff / maxDist) - 1;
+        }
+
+        return count;
+    }
+
+
     public double minimizeMaxDistance(int[] arr, int k) {
         int n = arr.length;
 
-        if (n < 2) return 0.0;
+        double low = 0.0;
+        double high = arr[n - 1] - arr[0];
 
+        while (high - low > 1e-6) {
+            double mid = (low + high) / 2.0;
 
-
-        class Segment {
-            double baseLen;
-            int stations;
-
-            Segment(double baseLen) {
-                this.baseLen = baseLen;
-                this.stations = 0;
+            if (requiredStations(arr, mid) > k) {
+                low = mid;
             }
-
-            double currentMaxSegmentLength() {
-                return baseLen / (stations + 1);
+            else {
+                high = mid;
             }
         }
 
-
-        PriorityQueue<Segment> pq = new PriorityQueue<>(
-            (a, b) -> Double.compare(b.currentMaxSegmentLength(), a.currentMaxSegmentLength())
-        );
-
-
-        for (int i = 0; i < n - 1; i++) {
-            double diff = arr[i + 1] - arr[i];
-            pq.offer(new Segment(diff));
-        }
-
-        for (int gasStation = 0; gasStation < k; gasStation++) {
-            Segment seg = pq.poll();
-            seg.stations++;
-            pq.offer(seg);
-        }
-
-        return pq.peek().currentMaxSegmentLength();
+        return high;
     }
 
 
@@ -66,6 +103,7 @@ public class GasStation {
         double ans = gs.minimizeMaxDistance(arr, k);
 
         System.out.println("Minimum possible maximum distance = " + ans);
+        // System.out.printf("Minimum possible maximum distance = %.6f\n", ans);
 
         sc.close();
     }
