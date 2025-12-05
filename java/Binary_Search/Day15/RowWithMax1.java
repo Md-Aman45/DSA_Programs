@@ -25,44 +25,61 @@ public class RowWithMax1 {
 
 
 
-    public int lowerBound(int[] arr, int n, int x) {
-        // ---------- Lower Bound ----------
-        int low = 0, high = n - 1;
-        int ans = n;
-
-        while (low <= high) {
-            int mid = (low + high) / 2;
 
 
-            if (arr[mid] >= x) {
-                ans = mid;
-                high = mid - 1;
-            }
-            else {
-                low = mid + 1;
-            }
-        }
+    // public int lowerBound(int[] arr, int n, int x) {
+    //     // ---------- Lower Bound ----------
+    //     int low = 0, high = n - 1;
+    //     int ans = n;
 
-        return ans;
-    }
+    //     while (low <= high) {
+    //         int mid = (low + high) / 2;
 
 
+    //         if (arr[mid] >= x) {
+    //             ans = mid;
+    //             high = mid - 1;
+    //         }
+    //         else {
+    //             low = mid + 1;
+    //         }
+    //     }
 
+    //     return ans;
+    // }
+
+
+
+
+    // ---------- Binary Search ----------
+    // public int rowWithMaxOnes(int[][] arr, int n, int m) {
+    //     int cntMax = 0;
+    //     int index = -1;
+
+    //     for (int i = 0; i < n; i++) {
+    //         int cntOnes = m - lowerBound(arr[i], m, 1);
+
+    //         if (cntOnes > cntMax) {
+    //             cntMax = cntOnes;
+    //             index = i;
+    //         }
+    //     }
+
+    //     return index;
+    // }
 
     public int rowWithMaxOnes(int[][] arr, int n, int m) {
-        int cntMax = 0;
-        int index = -1;
+        int maxRow = -1;
+        int j = m - 1;
 
         for (int i = 0; i < n; i++) {
-            int cntOnes = m - lowerBound(arr[i], m, 1);
-
-            if (cntOnes > cntMax) {
-                cntMax = cntOnes;
-                index = i;
+            while (j >= 0 && arr[i][j] == 1) {
+                j--;
+                maxRow = i;
             }
         }
 
-        return index;
+        return maxRow;
     }
 
 
