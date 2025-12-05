@@ -57,7 +57,7 @@ public class KthElement {
         KthElement ke = new KthElement();
         int ans = ke.kthelement(arr1, arr2, n1, n2, k);
 
-        System.out.println("The " + k + "-th smallest element is = " + ans);
+        System.out.println("The " + k + "-th element is = " + ans);
 
 
         sc.close();
