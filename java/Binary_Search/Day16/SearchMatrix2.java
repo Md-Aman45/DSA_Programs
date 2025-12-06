@@ -76,9 +76,10 @@ public class SearchMatrix2 {
 
         System.out.print("Result: ");
         if (ans[0] != -1) {
-            System.out.println("Target found at: " + "{" + ans[0] + "," + ans[1] + "}");
+            System.out.println("Target found at: " + "{" + ans[0] + ", " + ans[1] + "}");
         } else {
-            System.out.println("Target Not found in the matrix.");
+            // System.out.println("Target Not found in the matrix.");
+            System.out.println("{-1, -1}");
         }
 
         sc.close();
