@@ -13,7 +13,6 @@ public class Binary_Search {
         
         else return binary_search_recursive(arr, low, mid - 1, target);
 
-
     }
 
 
