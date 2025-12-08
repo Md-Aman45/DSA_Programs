@@ -29,7 +29,7 @@ public class LongestCommonPrefix {
         sc.nextLine();
 
         String[] arr = new String[n];
-        System.out.print("Enter the strings one by one: ");
+        System.out.println("Enter the strings one by one: ");
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextLine();
         }
