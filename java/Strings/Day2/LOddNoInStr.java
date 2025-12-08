@@ -1,4 +1,5 @@
 package Day2;
+
 import java.util.*;
 
 public class LOddNoInStr {
@@ -13,7 +14,6 @@ public class LOddNoInStr {
         return "";
     }
 
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -24,7 +24,12 @@ public class LOddNoInStr {
 
         String ans = obj.LargestOddNumInStr(input);
 
-        System.out.println("Largest odd number in String: " + ans);
+        // System.out.println("Largest odd number in String: " + ans);
+        if (ans.equals("")) {
+            System.out.println("Largest odd number in string: NONE");
+        } else {
+            System.out.println("Largest odd number in String: " + ans);
+        }
 
         sc.close();
     }
