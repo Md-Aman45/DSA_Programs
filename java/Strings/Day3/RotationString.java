@@ -7,6 +7,7 @@ public class RotationString {
 
         String concat = s1 + s1;
         
+        // Check if s2 exists inside concat...
         return concat.contains(s2);
     }
 
