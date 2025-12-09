@@ -11,7 +11,7 @@ public class IsomorphicStrings {
 
         for (int i = 0; i < s.length(); i++) {
             char charS = s.charAt(i);
-            char charT = s.charAt(i);
+            char charT = t.charAt(i);
 
 
             // Check mapping S -> T...
