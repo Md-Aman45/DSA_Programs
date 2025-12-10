@@ -36,6 +36,7 @@ public class SortCharByFreq {
 
 
 
+    
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -47,6 +48,9 @@ public class SortCharByFreq {
         String result = obj.frequencySort(s);
 
         System.out.println("Sorted by frequency: " + result);
+
+
+
 
         sc.close();
     }
