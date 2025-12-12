@@ -32,6 +32,7 @@ public class ImplementAtoi {
             i++;
         }
 
+        
         return (int)(ans * sign);
     }
 
