@@ -17,6 +17,22 @@ class Node {
 }
 
 public class IntroOfLL {
+    private static Node convertArrToLL(int[] arr) {
+        Node head = new Node(arr[0]);
+        Node mover = head;
+        
+        for (int i = 1; i < arr.length; i++) {
+            Node temp = new Node(arr[i]);
+            mover.next = temp;
+            mover = temp;
+            // mover = mover.next;
+        }
+
+        return head;
+    }
+
+
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -32,8 +48,11 @@ public class IntroOfLL {
 
 
         // Node...
-        Node y = new Node(arr[3]);
-        System.out.print(y.data);
+        // Node y = new Node(arr[3]);
+        // System.out.print(y.data);
+
+        Node head = convertArrToLL(arr);
+        System.out.print(head.data);
 
 
         sc.close();
