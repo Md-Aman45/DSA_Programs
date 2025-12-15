@@ -4,4 +4,8 @@ class Node:
         self.next = None
     
 
-n 
+n = int(input("Enter no. of elements: "))
+arr = list(map(int, input(f"Enter {n} numbers: ").split()))
+
+y = Node(arr[3])
+print(y.data)

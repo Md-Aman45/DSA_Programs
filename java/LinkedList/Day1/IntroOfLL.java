@@ -30,9 +30,10 @@ public class IntroOfLL {
         }
 
 
+
         // Node...
         Node y = new Node(arr[3]);
-        System.out.print(y);
+        System.out.print(y.data);
 
 
         sc.close();
