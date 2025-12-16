@@ -17,6 +17,18 @@ def convert_arr_to_LL(arr):
     return head
 
 
+def lengthOfLL(head):
+    cnt = 0
+    temp = head
+
+    while temp is not None:
+        temp = temp.next
+        cnt += 1
+    
+    return cnt
+
+
+
 
 # main...
 n = int(input("Enter no. of elements: "))
@@ -30,4 +42,5 @@ head = convert_arr_to_LL(arr)
 
 
 
-print(head.data)
+# print(head.data)
+print(lengthOfLL(head))

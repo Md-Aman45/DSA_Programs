@@ -75,6 +75,8 @@ public class IntroOfLL {
         System.out.println(lengthOfLL(head));
 
 
+
+        
         sc.close();
     }
 }
