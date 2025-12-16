@@ -28,6 +28,17 @@ def lengthOfLL(head):
     return cnt
 
 
+def checkIfPresent(head, val):
+    temp = head
+
+    while temp is not None:
+        if temp.data == val:
+            return 1
+        temp = temp.next
+
+    return 0
+
+
 
 
 # main...
@@ -43,4 +54,5 @@ head = convert_arr_to_LL(arr)
 
 
 # print(head.data)
-print(lengthOfLL(head))
+# print(lengthOfLL(head))
+print(checkIfPresent(head, 1))
