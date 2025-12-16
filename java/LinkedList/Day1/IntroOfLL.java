@@ -33,6 +33,22 @@ public class IntroOfLL {
 
 
 
+    private static int lengthOfLL(Node head) {
+        int cnt = 0;
+        Node temp = head;
+
+        while (temp != null) {
+            // System.out.print(temp.data + " ");
+            temp = temp.next;
+            cnt++;
+        }
+        return cnt;
+    }
+
+
+
+
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -54,7 +70,9 @@ public class IntroOfLL {
         // System.out.print(y.data);
 
         Node head = convertArrToLL(arr);
-        System.out.print(head.data);
+        // System.out.print(head.data);
+
+        System.out.println(lengthOfLL(head));
 
 
         sc.close();
