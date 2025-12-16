@@ -48,6 +48,19 @@ public class IntroOfLL {
 
 
 
+    private static int checkIfPresent(Node head, int val) {
+        Node temp = head;
+
+        while (temp != null) {
+            if (temp.data == val) return 1;
+            temp = temp.next;
+        }
+        return 0;
+    }
+
+
+
+
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -72,11 +85,12 @@ public class IntroOfLL {
         Node head = convertArrToLL(arr);
         // System.out.print(head.data);
 
-        System.out.println(lengthOfLL(head));
+        // System.out.println(lengthOfLL(head));
+        System.out.print(checkIfPresent(head, 1));
 
 
 
-        
+
         sc.close();
     }
 }
