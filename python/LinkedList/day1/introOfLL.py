@@ -51,11 +51,28 @@ def printStatement(head):
 
 
 
+# ---------- deletion ----------
 
+# head of LL...
 def removesHead(head):
     if head is None:
         return head
     head = head.next
+    return head
+
+
+# tail of LL...
+def removesTail(head):
+    if (head is None or head.next is None):
+        return None
+    
+    temp = head
+
+    while temp.next.next is not None:
+        temp = temp.next
+    
+    temp.next = None
+
     return head
 
 
@@ -76,5 +93,10 @@ head = convert_arr_to_LL(arr)
 # print(head.data)
 # print(lengthOfLL(head))
 # print(checkIfPresent(head, 1))
-head = removesHead(head)
+# head = removesHead(head)
+head = removesTail(head)
+
+
+
+
 printStatement(head)

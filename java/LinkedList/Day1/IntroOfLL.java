@@ -71,10 +71,27 @@ public class IntroOfLL {
 
 
 
+    // ----------- Deletion -----------
+
+    // head of LL...
     private static Node removesHead(Node head) {
         if (head == null) return head;
 
         head = head.next;
+        return head;
+    }
+
+
+    // tail of LL...
+    private static Node removesTail(Node head) {
+        if ((head == null) || (head.next == null)) return null;
+
+        Node temp = head;
+        while (temp.next.next != null) {
+            temp = temp.next;
+        }
+        temp.next = null;
+
         return head;
     }
 
@@ -107,7 +124,8 @@ public class IntroOfLL {
 
         // System.out.println(lengthOfLL(head));
         // System.out.print(checkIfPresent(head, 1));
-        head = removesHead(head);
+        // head = removesHead(head);
+        head = removesTail(head);
         print(head);
 
 
