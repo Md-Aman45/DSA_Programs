@@ -77,6 +77,55 @@ def removesTail(head):
 
 
 
+# position of LL...
+def removesK(head, k):
+    if head is None:
+        return head
+    
+    if k == 1:
+        head = head.next
+        return head
+    
+    cnt = 0
+    temp = head
+    prev = None
+
+    while temp is not None:
+        cnt += 1
+        if cnt == k:
+            prev.next = temp.next
+            break
+
+        prev = temp
+        temp = temp.next
+    
+    return head
+
+
+
+# value in LL...
+def removesEl(head, el):
+    if head is None:
+        return head
+    
+    if head.data == el:
+        return head.next
+    
+    temp = head
+    prev = None
+
+    while temp is not None:
+        if temp.data == el:
+            prev.next = temp.next
+            break
+
+        prev = temp
+        temp = temp.next
+    
+    return head
+
+
+
 
 # main...
 n = int(input("Enter no. of elements: "))
@@ -94,7 +143,9 @@ head = convert_arr_to_LL(arr)
 # print(lengthOfLL(head))
 # print(checkIfPresent(head, 1))
 # head = removesHead(head)
-head = removesTail(head)
+# head = removesTail(head)
+# head = removesK(head, 3)
+head = removesEl(head, 3)
 
 
 

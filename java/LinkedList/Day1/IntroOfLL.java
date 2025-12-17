@@ -98,6 +98,62 @@ public class IntroOfLL {
 
 
 
+    // position of LL...
+    private static Node removesK(Node head, int k) {
+        if (head == null) return head;
+
+        if (k == 1) {
+            head = head.next;
+            return head;
+        }
+
+        int cnt = 0;
+        Node temp = head;
+        Node prev = null;
+
+        while (temp != null) {
+            cnt++;
+
+            if (cnt == k) {
+                prev.next = prev.next.next;
+                break;
+            }
+            prev = temp;
+            temp = temp.next;
+        }
+
+        return head;
+    }
+
+
+
+    // value of LL...
+    private static Node removesEl(Node head, int el) {
+        if (head == null) return head;
+
+        if (head.data == el) {
+            head = head.next;
+            return head;
+        }
+
+        Node temp = head;
+        Node prev = null;
+
+        while (temp != null) {
+            if (temp.data == el) {
+                prev.next = prev.next.next;
+                break;
+            }
+            prev = temp;
+            temp = temp.next;
+        }
+
+        return head;
+    }
+
+
+
+
     
 
 
@@ -125,7 +181,9 @@ public class IntroOfLL {
         // System.out.println(lengthOfLL(head));
         // System.out.print(checkIfPresent(head, 1));
         // head = removesHead(head);
-        head = removesTail(head);
+        // head = removesTail(head);
+        // head = removesK(head, 3);
+        head = removesEl(head, 3);
         print(head);
 
 
