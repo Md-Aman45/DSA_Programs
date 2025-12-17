@@ -61,6 +61,26 @@ public class IntroOfLL {
 
 
 
+    private static void print(Node head) {
+        while (head != null) {
+            System.out.print(head.data + " ");
+            head = head.next;
+        }
+        System.out.println();
+    }
+
+
+
+    private static Node removesHead(Node head) {
+        if (head == null) return head;
+
+        head = head.next;
+        return head;
+    }
+
+
+
+
     
 
 
@@ -77,8 +97,6 @@ public class IntroOfLL {
         }
 
 
-        
-
 
         // Node...
         // Node y = new Node(arr[3]);
@@ -88,7 +106,9 @@ public class IntroOfLL {
         // System.out.print(head.data);
 
         // System.out.println(lengthOfLL(head));
-        System.out.print(checkIfPresent(head, 1));
+        // System.out.print(checkIfPresent(head, 1));
+        head = removesHead(head);
+        print(head);
 
 
 

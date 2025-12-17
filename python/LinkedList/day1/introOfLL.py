@@ -41,6 +41,26 @@ def checkIfPresent(head, val):
 
 
 
+def printStatement(head):
+    while head is not None:
+        print(head.data, end=" ")
+        head = head.next
+    
+    print()
+
+
+
+
+
+def removesHead(head):
+    if head is None:
+        return head
+    head = head.next
+    return head
+
+
+
+
 # main...
 n = int(input("Enter no. of elements: "))
 arr = list(map(int, input(f"Enter {n} numbers: ").split()))
@@ -55,4 +75,6 @@ head = convert_arr_to_LL(arr)
 
 # print(head.data)
 # print(lengthOfLL(head))
-print(checkIfPresent(head, 1))
+# print(checkIfPresent(head, 1))
+head = removesHead(head)
+printStatement(head)
