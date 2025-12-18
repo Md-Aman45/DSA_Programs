@@ -1,4 +1,4 @@
-package LinkedList.Day1;
+package Day1;
 import java.util.*;
 
 class Node {
@@ -209,6 +209,26 @@ public class IntroOfLL {
 
 
 
+    // val in LL...
+    private static Node insertBeforeVal(Node head, int el, int val) {
+        if (head.data == val) return new Node(el, head);
+
+        Node temp = head
+        ;
+        while (temp.next != null) {
+            if (temp.next.data ==val) {
+                Node x = new Node(el, temp.next);
+                temp.next = x;
+                break;
+            }
+            temp = temp.next;
+        }
+
+        return head;
+    }
+
+
+
 
 
     
@@ -252,7 +272,8 @@ public class IntroOfLL {
         // ---------- Insertion ----------
         // head = insertHead(head, 100);
         // head = insertTail(head, 10);
-        head = insertKth(head, 100, 2);
+        // head = insertKth(head, 100, 2);
+        head = insertBeforeVal(head, 100, 4);
         print(head);
 
 

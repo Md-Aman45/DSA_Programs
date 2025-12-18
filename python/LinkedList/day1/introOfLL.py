@@ -177,6 +177,27 @@ def insertKth(head, el, k):
 
 
 
+# val in LL...
+def insertBeforeVal(head, el, val):
+    if head is not None and head.data == val:
+        temp = Node(el)
+        temp.next = head
+        return temp
+    
+    temp = head
+
+    while temp is not None and temp.next is not None:
+        if temp.next.data == val:
+            x = Node(el)
+            x.next = temp.next
+            temp.next = x
+            break
+
+        temp = temp.next
+
+    return head
+
+
 
 
 # main...
@@ -207,7 +228,8 @@ head = convert_arr_to_LL(arr)
 # ----------- Insertion ------------
 # head = insertHead(head, 100)
 # head = insertTail(head, 20)
-head = insertKth(head, 100, 2)
+# head = insertKth(head, 100, 2)
+head = insertBeforeVal(head, 100, 2)
 
 
 
