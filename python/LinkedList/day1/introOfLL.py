@@ -137,6 +137,21 @@ def insertHead(head, val):
     return temp
 
 
+# tail of LL...
+def insertTail(head, val):
+    if head is None:
+        return Node(val)
+    
+    temp = head
+    while temp.next is not None:
+        temp = temp.next
+
+    newNode = Node(val)
+    temp.next = newNode
+    return head
+
+
+
 
 
 # main...
@@ -165,7 +180,8 @@ head = convert_arr_to_LL(arr)
 
 
 # ----------- Insertion ------------
-head = insertHead(head, 100)
+# head = insertHead(head, 100)
+head = insertTail(head, 20)
 
 
 

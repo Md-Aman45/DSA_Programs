@@ -163,6 +163,23 @@ public class IntroOfLL {
     }
 
 
+    // tail of LL...
+    private static Node insertTail(Node head, int val) {
+        if (head == null) return new Node(val);
+
+        Node temp = head;
+
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+
+        Node new_Node = new Node(val);
+        temp.next = new_Node;
+        return head;
+    }
+
+
+
 
 
     
@@ -198,12 +215,14 @@ public class IntroOfLL {
         // head = removesTail(head);
         // head = removesK(head, 3);
         // head = removesEl(head, 3);
+        // print(head);
 
 
 
 
         // ---------- Insertion ----------
-        head = insertHead(head, 100);
+        // head = insertHead(head, 100);
+        head = insertTail(head, 10);
         print(head);
 
 
