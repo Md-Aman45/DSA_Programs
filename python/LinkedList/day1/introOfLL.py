@@ -153,6 +153,31 @@ def insertTail(head, val):
 
 
 
+# kth of LL...
+def insertKth(head, el, k):
+    if k == 1:
+        temp = Node(el)
+        temp.next = head
+        return temp
+    
+    cnt = 0
+    temp = head
+
+    while temp is not None:
+        cnt += 1
+
+        if cnt == k - 1:
+            x = Node(el)
+            x.next = temp.next
+            temp.next = x
+            break
+        temp = temp.next
+    
+    return head
+
+
+
+
 
 # main...
 n = int(input("Enter no. of elements: "))
@@ -181,7 +206,8 @@ head = convert_arr_to_LL(arr)
 
 # ----------- Insertion ------------
 # head = insertHead(head, 100)
-head = insertTail(head, 20)
+# head = insertTail(head, 20)
+head = insertKth(head, 100, 2)
 
 
 

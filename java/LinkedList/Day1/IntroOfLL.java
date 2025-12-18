@@ -181,6 +181,35 @@ public class IntroOfLL {
 
 
 
+    // kth in LL...
+    private static Node insertKth(Node head, int el, int k) {
+        if (head == null) {
+            if (k == 1) return new Node(el);
+            else return null;
+        }
+
+        if (k == 1) return new Node(el, head);
+
+        int cnt = 0;
+        Node temp = head;
+
+        while (temp != null) {
+            cnt++;
+
+            if (cnt == k - 1) {
+                Node x = new Node(el);
+                x.next = temp.next;
+                temp.next = x;
+                break;
+            }
+            temp = temp.next;
+        }
+        return head;
+    }
+
+
+
+
 
     
 
@@ -222,7 +251,8 @@ public class IntroOfLL {
 
         // ---------- Insertion ----------
         // head = insertHead(head, 100);
-        head = insertTail(head, 10);
+        // head = insertTail(head, 10);
+        head = insertKth(head, 100, 2);
         print(head);
 
 
