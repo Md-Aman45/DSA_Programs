@@ -127,6 +127,18 @@ def removesEl(head, el):
 
 
 
+
+# ---------- Insertion ----------
+
+# head of LL...
+def insertHead(head, val):
+    temp = Node(val)
+    temp.next = head
+    return temp
+
+
+
+
 # main...
 n = int(input("Enter no. of elements: "))
 arr = list(map(int, input(f"Enter {n} numbers: ").split()))
@@ -142,10 +154,18 @@ head = convert_arr_to_LL(arr)
 # print(head.data)
 # print(lengthOfLL(head))
 # print(checkIfPresent(head, 1))
+
+
+# ----------- Deletion -----------
 # head = removesHead(head)
 # head = removesTail(head)
 # head = removesK(head, 3)
-head = removesEl(head, 3)
+# head = removesEl(head, 3)
+
+
+
+# ----------- Insertion ------------
+head = insertHead(head, 100)
 
 
 

@@ -154,6 +154,17 @@ public class IntroOfLL {
 
 
 
+
+    // ---------- Insertion ----------
+
+    // head of LL...
+    private static Node insertHead(Node head, int val) {
+        return new Node(val, head);
+    }
+
+
+
+
     
 
 
@@ -180,10 +191,19 @@ public class IntroOfLL {
 
         // System.out.println(lengthOfLL(head));
         // System.out.print(checkIfPresent(head, 1));
+
+
+        // ----------- Deletion -----------
         // head = removesHead(head);
         // head = removesTail(head);
         // head = removesK(head, 3);
-        head = removesEl(head, 3);
+        // head = removesEl(head, 3);
+
+
+
+
+        // ---------- Insertion ----------
+        head = insertHead(head, 100);
         print(head);
 
 
