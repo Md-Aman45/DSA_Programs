@@ -39,6 +39,22 @@ public class IntroOfDLL {
 
 
 
+    // ---------- Deletion ----------
+    // delete head in DLL...
+    private static Node deleteHead(Node head) {
+        if (head == null || head.next == null) return null;
+
+        Node prev = head;
+        head = head.next;
+        head.back = null;
+        prev.next = null;
+
+        return head;
+    }
+
+
+
+
 
 
 
@@ -94,6 +110,11 @@ public class IntroOfDLL {
 
         // convert arr to DLL...
         Node head = convertArrToDLL(arr);
+
+
+
+        // ---------- Deletion -----------
+        head = deleteHead(head);
 
 
 

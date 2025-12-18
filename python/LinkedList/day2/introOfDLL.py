@@ -27,6 +27,22 @@ def convertArrToDLL(arr):
 
 
 
+# ---------- Deletion -----------
+# delete in DLL...
+def deleteHead(head):
+    if head is None or head.next is None:
+        return None
+    
+    prev = head
+    head = head.next
+    head.back = None
+    prev.next = None
+
+    return head
+
+
+
+
 
 # print Statement...
 def printDLL(head):
@@ -66,6 +82,11 @@ arr = list(map(int, input(f"Enter {n} numbers: ").split()))
 
 # convert arr to DLL...
 head = convertArrToDLL(arr)
+
+
+
+# ---------- deletion ------------
+head = deleteHead(head)
 
 
 
