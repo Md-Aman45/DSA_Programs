@@ -54,6 +54,23 @@ public class IntroOfDLL {
 
 
 
+    // delete tail in DLL...
+    private static Node deleteTail(Node head) {
+        if (head == null || head.next == null) return null;
+
+        Node tail = head;
+
+        while (tail.next != null) tail = tail.next;
+
+        Node prev = tail.back;
+        prev.next = null;
+        tail.back = null;
+
+        return head;
+    }
+
+
+
 
 
 
@@ -114,7 +131,8 @@ public class IntroOfDLL {
 
 
         // ---------- Deletion -----------
-        head = deleteHead(head);
+        // head = deleteHead(head);
+        head = deleteTail(head);
 
 
 

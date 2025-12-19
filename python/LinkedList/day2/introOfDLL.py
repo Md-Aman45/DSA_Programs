@@ -41,6 +41,23 @@ def deleteHead(head):
     return head
 
 
+def deleteTail(head):
+    if head is None or head.next is None:
+        return head
+    
+    tail = head
+    while tail.next is not None:
+        tail = tail.next
+    
+    prev = tail.back
+    prev.next = None
+    tail.back = None
+
+    return head
+
+
+
+
 
 
 
@@ -86,7 +103,8 @@ head = convertArrToDLL(arr)
 
 
 # ---------- deletion ------------
-head = deleteHead(head)
+# head = deleteHead(head)
+head = deleteTail(head)
 
 
 
