@@ -103,6 +103,25 @@ public class IntroOfDLL {
 
 
 
+    // delete the Node of the DLL...
+    private static void deleteNode(Node temp) {
+        Node prev = temp.back;
+        Node front = temp.next;
+
+        if (front == null) {
+            prev.next = null;
+            temp.back = null;
+            return;
+        }
+
+        prev.next = front;
+        front.back = prev;
+
+        temp.next = temp.back = null;
+    }
+
+
+
 
 
 
@@ -165,7 +184,8 @@ public class IntroOfDLL {
         // ---------- Deletion -----------
         // head = deleteHead(head);
         // head = deleteTail(head);
-        head = deleteKthElement(head, 3);
+        // head = deleteKthElement(head, 3);
+        deleteNode(head.next);
 
 
 

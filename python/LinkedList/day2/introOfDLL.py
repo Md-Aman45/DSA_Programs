@@ -89,6 +89,25 @@ def deleteKthElement(head, k):
 
 
 
+def deleteNode(temp):
+    if temp is None:
+        return
+    
+    prev = temp.back
+    front = temp.next
+
+    if front is None:
+        prev.next = None
+        temp.back = None
+        return
+    
+    prev.next = front
+    front.back = prev
+    temp.next = temp.back = None
+
+
+
+
 
 
 
@@ -136,7 +155,8 @@ head = convertArrToDLL(arr)
 # ---------- deletion ------------
 # head = deleteHead(head)
 # head = deleteTail(head)
-head = deleteKthElement(head, 3)
+# head = deleteKthElement(head, 3)
+deleteNode(head.next)
 
 
 
