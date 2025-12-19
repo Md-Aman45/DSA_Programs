@@ -57,6 +57,37 @@ def deleteTail(head):
 
 
 
+# delete kth ele in DLL...
+def deleteKthElement(head, k):
+    if head == None: return None
+
+    cnt = 0
+    temp = head
+    while temp is not None:
+        cnt += 1
+        if (cnt == k): break
+        temp = temp.next
+
+    prev = temp.back
+    front = temp.next
+
+    if prev is None and front is None:
+        return None
+    
+    elif prev is None:
+        return deleteHead(head)
+    elif front is None:
+        return deleteTail(head)
+    
+    prev.next = front
+    front.back = prev
+    temp.next = None
+    temp.back = None
+
+    return head
+
+
+
 
 
 
@@ -104,7 +135,8 @@ head = convertArrToDLL(arr)
 
 # ---------- deletion ------------
 # head = deleteHead(head)
-head = deleteTail(head)
+# head = deleteTail(head)
+head = deleteKthElement(head, 3)
 
 
 

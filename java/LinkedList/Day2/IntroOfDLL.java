@@ -72,6 +72,38 @@ public class IntroOfDLL {
 
 
 
+    // delete kth ele in DLL...
+    private static Node deleteKthElement(Node head, int k) {
+        if (head == null) return null;
+
+        int cnt = 0;
+
+        Node temp = head;
+        while (temp != null) {
+            cnt++;
+            if (cnt == k) break;
+            temp = temp.next;
+        }
+
+        Node prev = temp.back;
+        Node front = temp.next;
+
+        if (prev == null && front == null) return null;
+
+        else if (prev == null) return deleteHead(head);
+        else if (front == null) return deleteTail(head);
+
+        prev.next = front;
+        front.back = prev;
+        temp.back = null;
+        temp.next = null;
+
+        return head;
+    }
+
+
+
+
 
 
 
@@ -132,7 +164,8 @@ public class IntroOfDLL {
 
         // ---------- Deletion -----------
         // head = deleteHead(head);
-        head = deleteTail(head);
+        // head = deleteTail(head);
+        head = deleteKthElement(head, 3);
 
 
 
