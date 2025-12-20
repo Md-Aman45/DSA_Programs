@@ -122,6 +122,21 @@ def insertHead(head, val):
     return newHead
 
 
+# insert tail in DLL...
+def insertTail(head, val):
+    if head.next is None:
+        return insertHead(head, val)
+    
+    tail = head
+    while tail.next is not None:
+        tail = tail.next
+    
+    prev = tail.back
+    newNode = Node(val, tail, prev)
+    prev.next = newNode
+    tail.back = newNode
+
+    return head
 
 
 
@@ -178,7 +193,8 @@ head = convertArrToDLL(arr)
 
 
 # ----------- Insertion ----------
-head = insertHead(head, 2)
+# head = insertHead(head, 2)
+head = insertTail(head, 10)
 
 
 

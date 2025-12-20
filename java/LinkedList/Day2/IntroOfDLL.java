@@ -137,6 +137,20 @@ public class IntroOfDLL {
     }
 
 
+    // insert tail in DLL...
+    private static Node insertTail(Node head, int val) {
+        if (head.next == null) return insertHead(head, val);
+
+        Node tail = head;
+        while (tail.next != null) tail = tail.next;
+
+        Node prev = tail.back;
+        Node newNode = new Node(val, tail, prev);
+        prev.next = newNode;
+        tail.back = newNode;
+
+        return head;
+    }
 
 
     // print Statement...
@@ -204,7 +218,8 @@ public class IntroOfDLL {
 
 
         // ---------- Insertion -----------
-        head = insertHead(head, 10);
+        // head = insertHead(head, 10);
+        head = insertTail(head, 10);
 
 
 
