@@ -161,6 +161,12 @@ def insertKth(head, k, val):
     return head
 
 
+# insert node in DLL...
+def insertNode(node, val):
+    prev = node.back
+    newNode = Node(val, node, prev)
+    prev.next = newNode
+    node.back = newNode
 
 
 
@@ -219,7 +225,8 @@ head = convertArrToDLL(arr)
 # ----------- Insertion ----------
 # head = insertHead(head, 2)
 # head = insertTail(head, 10)
-head = insertKth(head, 3, 10)
+# head = insertKth(head, 3, 10)
+insertNode(head.next.next, 100)
 
 
 

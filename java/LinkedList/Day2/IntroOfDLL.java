@@ -175,6 +175,14 @@ public class IntroOfDLL {
     }
 
 
+    // insert node in DLL...
+    private static void insertNode(Node node, int val) {
+        Node prev = node.back;
+        Node newNode = new Node(val, node, prev);
+        prev.next = newNode;
+        node.back = newNode;
+    }
+
 
 
 
@@ -247,7 +255,8 @@ public class IntroOfDLL {
         // ---------- Insertion -----------
         // head = insertHead(head, 10);
         // head = insertTail(head, 10);
-        head = insertKth(head, 3, 10);
+        // head = insertKth(head, 3, 10);
+        insertNode(head.next.next, 100);
 
 
 
