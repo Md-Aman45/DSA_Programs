@@ -28,7 +28,7 @@ def convertArrToDLL(arr):
 
 
 # ---------- Deletion -----------
-# delete in DLL...
+# delete head in DLL...
 def deleteHead(head):
     if head is None or head.next is None:
         return None
@@ -41,6 +41,7 @@ def deleteHead(head):
     return head
 
 
+# delete tail in DLL...
 def deleteTail(head):
     if head is None or head.next is None:
         return head
@@ -88,7 +89,7 @@ def deleteKthElement(head, k):
 
 
 
-
+# delete the Node of the DLL...
 def deleteNode(temp):
     if temp is None:
         return
@@ -105,6 +106,20 @@ def deleteNode(temp):
     front.back = prev
     temp.next = temp.back = None
 
+
+
+
+
+# ---------- Insertion (before) ----------
+# insert head in DLL...
+def insertHead(head, val):
+    if head == None:
+        return val
+    
+    newHead = Node(val, head, None)
+    head.back = newHead
+
+    return newHead
 
 
 
@@ -156,7 +171,14 @@ head = convertArrToDLL(arr)
 # head = deleteHead(head)
 # head = deleteTail(head)
 # head = deleteKthElement(head, 3)
-deleteNode(head.next)
+# deleteNode(head.next)
+
+
+
+
+
+# ----------- Insertion ----------
+head = insertHead(head, 2)
 
 
 

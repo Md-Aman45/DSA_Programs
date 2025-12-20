@@ -125,6 +125,19 @@ public class IntroOfDLL {
 
 
 
+    // ---------- Insertion (before) ----------
+    // insert head in DLL...
+    private static Node insertHead(Node head, int val) {
+        if (head == null) return new Node(val);
+        
+        Node newHead = new Node(val, head, null);
+        head.back = newHead;
+
+        return newHead;
+    }
+
+
+
 
     // print Statement...
     private static void printDLL(Node head) {
@@ -185,7 +198,13 @@ public class IntroOfDLL {
         // head = deleteHead(head);
         // head = deleteTail(head);
         // head = deleteKthElement(head, 3);
-        deleteNode(head.next);
+        // deleteNode(head.next);
+
+
+
+
+        // ---------- Insertion -----------
+        head = insertHead(head, 10);
 
 
 
