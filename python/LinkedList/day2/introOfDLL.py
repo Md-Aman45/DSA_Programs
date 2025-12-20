@@ -140,6 +140,30 @@ def insertTail(head, val):
 
 
 
+# insert kth in DLL...
+def insertKth(head, k, val):
+    if k == 1:
+        return insertHead(head, val)
+    
+    temp = head
+    cnt = 0
+
+    while temp is not None:
+        cnt += 1
+        if cnt == k: break
+        temp = temp.next
+    
+    prev = temp.back
+    newNode = Node(val, temp, prev)
+    prev.next = newNode
+    temp.back = newNode
+
+    return head
+
+
+
+
+
 
 # print Statement...
 def printDLL(head):
@@ -194,7 +218,8 @@ head = convertArrToDLL(arr)
 
 # ----------- Insertion ----------
 # head = insertHead(head, 2)
-head = insertTail(head, 10)
+# head = insertTail(head, 10)
+head = insertKth(head, 3, 10)
 
 
 

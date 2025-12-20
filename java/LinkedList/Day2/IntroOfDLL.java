@@ -153,6 +153,33 @@ public class IntroOfDLL {
     }
 
 
+    // insert kth in DLL...
+    private static Node insertKth(Node head, int k, int val) {
+        if (k == 1) return insertHead(head, val);
+
+        Node temp = head;
+        int cnt = 0;
+        
+        while (temp != null) {
+            cnt++;
+            if (cnt == k) break;
+            temp = temp.next;
+        }
+
+        Node prev = temp.back;
+        Node newNode = new Node(val, temp, prev);
+        prev.next = newNode;
+        temp.back = newNode;
+
+        return head;
+    }
+
+
+
+
+
+
+
     // print Statement...
     private static void printDLL(Node head) {
         Node temp = head;
@@ -219,7 +246,8 @@ public class IntroOfDLL {
 
         // ---------- Insertion -----------
         // head = insertHead(head, 10);
-        head = insertTail(head, 10);
+        // head = insertTail(head, 10);
+        head = insertKth(head, 3, 10);
 
 
 
