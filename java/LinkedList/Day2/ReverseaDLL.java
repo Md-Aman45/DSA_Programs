@@ -21,26 +21,45 @@ class Node {
 
 public class ReverseaDLL {
     public static Node reverseDLL(Node head) {
-        if (head == null) return head;
+        // if (head == null) return head;
 
-        Node temp = head;
-        Stack<Integer> st = new Stack<>();
+        // Node temp = head;
+        // Stack<Integer> st = new Stack<>();
 
-        // push data...
-        while (temp != null) {
-            st.push(temp.data);
-            temp = temp.next;
+        // // push data...
+        // while (temp != null) {
+        //     st.push(temp.data);
+        //     temp = temp.next;
+        // }
+
+        // // replace data...
+        // temp = head;
+        // while (temp != null) {
+        //     temp.data = st.peek();
+        //     st.pop();
+        //     temp = temp.next;
+        // }
+
+        // return head;
+
+
+
+
+        // optimal...
+        if (head == null || head.next == null) return head;
+
+        Node prev = null;
+        Node curr = head;
+
+        while (curr != null) {
+            prev = curr.back;
+            curr.back = curr.next;
+            curr.next = prev;
+
+            curr = curr.back;
         }
 
-        // replace data...
-        temp = head;
-        while (temp != null) {
-            temp.data = st.peek();
-            st.pop();
-            temp = temp.next;
-        }
-
-        return head;
+        return prev.back;
     }
 
 

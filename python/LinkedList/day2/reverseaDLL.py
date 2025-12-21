@@ -6,25 +6,48 @@ class Node:
 
 
 def reverseDLL(head):
-    if head is None:
+    # if head is None:
+    #     return head
+    
+    # temp = head
+    # st = []
+
+    # # push data into stack...
+    # while temp is not None:
+    #     st.append(temp.data)
+    #     temp = temp.next
+
+    
+    # # replace data from stack...
+    # temp = head
+    # while temp is not None:
+    #     temp.data = st.pop()
+    #     temp = temp.next
+
+    # return head
+
+
+
+    # optimal...
+    if head is None or head.next is None:
         return head
     
-    temp = head
-    st = []
+    curr = head
+    prev = None
 
-    # push data into stack...
-    while temp is not None:
-        st.append(temp.data)
-        temp = temp.next
+    while curr is not None:
+        prev = curr.back
+        curr.back = curr.next
+        curr.next = prev
+
+        curr = curr.back
 
     
-    # replace data from stack...
-    temp = head
-    while temp is not None:
-        temp.data = st.pop()
-        temp = temp.next
+    return prev.back
 
-    return head
+
+
+
 
 
 def printDLL(head):
@@ -33,6 +56,9 @@ def printDLL(head):
         print(temp.data, end=" ")
         temp = temp.next
     print()
+
+
+
 
 
 # -------- main --------
