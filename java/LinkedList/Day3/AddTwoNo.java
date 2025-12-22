@@ -19,6 +19,7 @@ class Node {
     }
 }
 
+
 public class AddTwoNo {
     // Function to add two numbers...
     private static Node addTwoNum(Node num1, Node num2) {
@@ -74,10 +75,10 @@ public class AddTwoNo {
 
     // Main method...
     public static void main(String[] args) {
-         // First number: 342 (stored as 2 -> 4 -> 3)
+         // First number: 442 (stored as 2 -> 4 -> 3)
         Node num1 = new Node(2);
         num1.next = new Node(4);
-        num1.next.next = new Node(3);
+        num1.next.next = new Node(4);
 
         // Second number: 465 (stored as 5 -> 6 -> 4)
         Node num2 = new Node(5);
