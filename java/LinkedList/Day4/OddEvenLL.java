@@ -29,47 +29,70 @@ public class OddEvenLL {
             return head;
         }
 
-        ArrayList<Integer> arr = new ArrayList<>();
-        Node temp = head;
 
-        System.out.println("\nCollecting odd indexed nodes:");
-        while (temp != null) {
-            System.out.print(temp.data + " ");
-            arr.add(temp.data);
+        // ---------- Brute Approach ----------
+        // ArrayList<Integer> arr = new ArrayList<>();
+        // Node temp = head;
 
-            if (temp.next == null) break;
-            temp = temp.next.next;
+        // System.out.println("\nCollecting odd indexed nodes:");
+        // while (temp != null) {
+        //     System.out.print(temp.data + " ");
+        //     arr.add(temp.data);
+
+        //     if (temp.next == null) break;
+        //     temp = temp.next.next;
+        // }
+        // System.out.println();
+
+
+        // temp = head.next;
+
+        // System.out.println("Collecting even indexed nodes:");
+        // while (temp != null) {
+        //     System.out.print(temp.data + " ");
+        //     arr.add(temp.data);
+
+        //     if (temp.next == null) break;
+        //     temp = temp.next.next;
+        // }
+        // System.out.println();
+
+        // System.out.println("ArrayList after collecting:");
+        // System.out.println(arr);
+
+        // temp = head;
+        // int i = 0;
+        // System.out.println("\nRewriting linked list:");
+
+        // while (temp != null) {
+        //     System.out.println(
+        //         "Replacing node value " + temp.data + " with " + arr.get(i)
+        //     );
+        //     temp.data = arr.get(i);
+        //     i++;
+        //     temp = temp.next;
+        // }
+
+        // return head;
+
+
+
+
+        // optimal approach...
+        Node odd = head;
+        Node even = head.next;
+        Node evenHead = head.next;
+
+
+        while (even != null && even.next != null) {
+            odd.next = odd.next.next;
+            even.next = even.next.next;
+
+            odd = odd.next;
+            even = even.next;
         }
-        System.out.println();
 
-
-        temp = head.next;
-
-        System.out.println("Collecting even indexed nodes:");
-        while (temp != null) {
-            System.out.print(temp.data + " ");
-            arr.add(temp.data);
-
-            if (temp.next == null) break;
-            temp = temp.next.next;
-        }
-        System.out.println();
-
-        System.out.println("ArrayList after collecting:");
-        System.out.println(arr);
-
-        temp = head;
-        int i = 0;
-        System.out.println("\nRewriting linked list:");
-
-        while (temp != null) {
-            System.out.println(
-                "Replacing node value " + temp.data + " with " + arr.get(i)
-            );
-            temp.data = arr.get(i);
-            i++;
-            temp = temp.next;
-        }
+        odd.next = evenHead;
 
         return head;
     }

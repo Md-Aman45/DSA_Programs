@@ -9,49 +9,71 @@ def odd_even_ll(head):
         print("List is too short. No changes needed.")
         return head
     
-    arr = []
-    temp = head
 
-    print("\nCollecting odd indexed nodes:")
 
-    while temp:
-        print(temp.data, end=" ")
-        arr.append(temp.data)
+    # ---------- Brute Approach ----------
+    # arr = []
+    # temp = head
 
-        if temp.next is None:
-            break
+    # print("\nCollecting odd indexed nodes:")
 
-        temp = temp.next.next
-    print()
+    # while temp:
+    #     print(temp.data, end=" ")
+    #     arr.append(temp.data)
 
-    temp = head.next
-    print("Collecting even indexed nodes:")
+    #     if temp.next is None:
+    #         break
 
-    while temp:
-        print(temp.data, end=" ")
-        arr.append(temp.data)
+    #     temp = temp.next.next
+    # print()
 
-        if temp.next is None:
-            break
+    # temp = head.next
+    # print("Collecting even indexed nodes:")
 
-        temp = temp.next.next
-    print()
+    # while temp:
+    #     print(temp.data, end=" ")
+    #     arr.append(temp.data)
 
-    print("List after collecting values:")
-    print(arr)
+    #     if temp.next is None:
+    #         break
 
-    temp = head
-    i = 0
-    print("\nRewriting linked list:")
+    #     temp = temp.next.next
+    # print()
 
-    while temp:
-        print(f"Replacing node value {temp.data} with {arr[i]}")
-        temp.data = arr[i]
-        i += 1
-        temp = temp.next
+    # print("List after collecting values:")
+    # print(arr)
+
+    # temp = head
+    # i = 0
+    # print("\nRewriting linked list:")
+
+    # while temp:
+    #     print(f"Replacing node value {temp.data} with {arr[i]}")
+    #     temp.data = arr[i]
+    #     i += 1
+    #     temp = temp.next
+
+    # return head
+
+
+
+
+    # optimal approach...
+    odd = head
+    even = head.next
+    evenHead = head.next
+
+    while even is not None and even.next is not None:
+        odd.next = odd.next.next
+        even.next = even.next.next
+
+        odd = odd.next
+        even = even.next
+
+    
+    odd.next = evenHead
 
     return head
-
 
 
 
