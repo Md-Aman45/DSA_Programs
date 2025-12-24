@@ -20,33 +20,66 @@ class Node {
     }
 }
 
+
+
+
 public class RemoveNodeFromEnd {
     private static Node removenthNodeFromEnd(Node head, int N) {
         if (head == null) return null;
 
 
-        int cnt = 0;
-        Node temp = head;
+        // Brute approach...
+        // int cnt = 0;
+        // Node temp = head;
 
-        while (temp != null) {
-            cnt++;
-            temp = temp.next;
+        // while (temp != null) {
+        //     cnt++;
+        //     temp = temp.next;
+        // }
+
+        // if (cnt == N) return head.next;
+
+        // int res = cnt - N;
+        // temp = head;
+
+        // while (res > 1) {
+        //     temp = temp.next;
+        //     res--;
+        // }
+
+        // temp.next = temp.next.next;
+
+        // return head;
+
+
+
+
+
+        // ----------- Optimal approach -----------
+        Node fast = head;
+        for (int i = 0; i < N; i++) fast = fast.next;
+
+        Node slow = head;
+
+        if (fast == null) return head.next;
+
+        while (fast.next != null) {
+            slow = slow.next;
+            fast = fast.next;
         }
 
-        if (cnt == N) return head.next;
-
-        int res = cnt - N;
-        temp = head;
-
-        while (res > 1) {
-            temp = temp.next;
-            res--;
-        }
-
-        temp.next = temp.next.next;
+        slow.next = slow.next.next;
 
         return head;
     }
+
+
+
+
+
+
+
+
 
 
     // Print linked list

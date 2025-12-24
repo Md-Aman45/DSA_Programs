@@ -9,24 +9,45 @@ def removeNthNodeFromEnd(head, N):
     if head is None:
         return None
 
-    cnt = 0
-    temp = head
+    # ----------- Brute approach -----------
+    # cnt = 0
+    # temp = head
 
-    while temp is not None:
-        cnt += 1
-        temp = temp.next
+    # while temp is not None:
+    #     cnt += 1
+    #     temp = temp.next
 
-    if cnt == N:
+    # if cnt == N:
+    #     return head.next
+    
+    # res = cnt - N
+    # temp = head
+
+    # while res > 1:
+    #     temp = temp.next
+    #     res -= 1
+    
+    # temp.next = temp.next.next
+
+    # return head
+
+
+
+    # optimal approach...
+    fast = head
+    for i in range(N):
+        fast = fast.next
+    
+    slow = head
+
+    if fast is None:
         return head.next
     
-    res = cnt - N
-    temp = head
-
-    while res > 1:
-        temp = temp.next
-        res -= 1
+    while fast.next is not None:
+        slow = slow.next
+        fast = fast.next
     
-    temp.next = temp.next.next
+    slow.next = slow.next.next
 
     return head
 
