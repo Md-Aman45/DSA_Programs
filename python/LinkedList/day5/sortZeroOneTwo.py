@@ -9,40 +9,73 @@ def sortzeroOneTwo(head):
     if head is None or head.next is None:
         return head
     
+    # temp = head
+    # cnt0 = 0
+    # cnt1 = 0
+    # cnt2 = 0
+
+    # while temp is not None:
+    #     if temp.data == 0:
+    #         cnt0 += 1
+    #     elif temp.data == 1:
+    #         cnt1 += 1
+    #     else:
+    #         cnt2 += 1
+        
+    #     temp = temp.next
+    
+
+    # temp = head
+
+    # while temp is not None:
+    #     if cnt0 > 0:
+    #         temp.data = 0
+    #         cnt0 -= 1
+    #     elif cnt1 > 0:
+    #         temp.data = 1
+    #         cnt1 -= 1
+    #     else:
+    #         temp.data = 2
+    #         cnt2 -= 1
+        
+    #     temp = temp.next
+    
+    # return head
+
+
+
+    # optimal approach...
+    zeroHead = Node(-1)
+    oneHead = Node(-1)
+    twoHead = Node(-1)
+
+    zero = zeroHead
+    one = oneHead
+    two = twoHead
+
     temp = head
-    cnt0 = 0
-    cnt1 = 0
-    cnt2 = 0
 
     while temp is not None:
         if temp.data == 0:
-            cnt0 += 1
+            zero.next = temp
+            zero = temp
         elif temp.data == 1:
-            cnt1 += 1
+            one.next = temp
+            one = temp
         else:
-            cnt2 += 1
+            two.next = temp
+            two = temp
         
         temp = temp.next
     
 
-    temp = head
+    zero.next = oneHead.next if oneHead.next is not None else twoHead.next
+    one.next = twoHead.next
+    two.next = None
 
-    while temp is not None:
-        if cnt0 > 0:
-            temp.data = 0
-            cnt0 -= 1
-        elif cnt1 > 0:
-            temp.data = 1
-            cnt1 -= 1
-        else:
-            temp.data = 2
-            cnt2 -= 1
-        
-        temp = temp.next
-    
+    newHead = zeroHead.next
 
-    return head
-
+    return newHead
 
 
 
