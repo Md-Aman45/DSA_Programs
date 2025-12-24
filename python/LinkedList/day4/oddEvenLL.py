@@ -4,6 +4,8 @@ class Node:
         self.next = None
         self.back = None
     
+
+    
 def odd_even_ll(head):
     if head is None or head.next is None:
         print("List is too short. No changes needed.")
