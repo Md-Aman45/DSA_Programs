@@ -9,21 +9,37 @@ def reverseLL(head):
     if head is None or head.next is None:
         return head
     
-    temp = head
-    st = []
+    # temp = head
+    # st = []
 
-    while temp is not None:
-        st.append(temp.data)
-        temp = temp.next
+    # while temp is not None:
+    #     st.append(temp.data)
+    #     temp = temp.next
     
 
+    # temp = head
+
+    # while temp is not None:
+    #     temp.data = st.pop()
+    #     temp = temp.next
+
+    # return head
+
+
+
+
+
+    # optimal approach...
     temp = head
+    prev = None
 
     while temp is not None:
-        temp.data = st.pop()
-        temp = temp.next
-
-    return head
+        front = temp.next
+        temp.next = prev
+        prev = temp
+        temp = front
+    
+    return prev
 
 
 

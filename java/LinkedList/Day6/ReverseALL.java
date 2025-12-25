@@ -26,23 +26,40 @@ public class ReverseALL {
         if (head == null || head.next == null)
             return head;
 
+        // Node temp = head;
+        // Stack<Integer> st = new Stack<>();
+
+        // while (temp != null) {
+        //     st.push(temp.data);
+        //     temp = temp.next;
+        // }
+
+        // temp = head;
+
+        // while (temp != null) {
+        //     temp.data = st.peek();
+        //     st.pop();
+        //     temp = temp.next;
+        // }
+
+        // return head;
+
+
+
+
+
+        // optimal approach...
         Node temp = head;
-        Stack<Integer> st = new Stack<>();
+        Node prev = null;
 
         while (temp != null) {
-            st.push(temp.data);
-            temp = temp.next;
+            Node front = temp.next;
+            temp.next = prev;
+            prev = temp;
+            temp = front;
         }
 
-        temp = head;
-
-        while (temp != null) {
-            temp.data = st.peek();
-            st.pop();
-            temp = temp.next;
-        }
-
-        return head;
+        return prev;
     }
 
 
