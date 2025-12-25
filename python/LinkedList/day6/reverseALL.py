@@ -30,16 +30,27 @@ def reverseLL(head):
 
 
     # optimal approach...
-    temp = head
-    prev = None
+    # temp = head
+    # prev = None
 
-    while temp is not None:
-        front = temp.next
-        temp.next = prev
-        prev = temp
-        temp = front
+    # while temp is not None:
+    #     front = temp.next
+    #     temp.next = prev
+    #     prev = temp
+    #     temp = front
     
-    return prev
+    # return prev
+
+
+
+
+
+    # recursive...
+    newHead = reverseLL(head.next)
+    front = head.next
+    front.next = head
+    head.next = None
+    return newHead
 
 
 

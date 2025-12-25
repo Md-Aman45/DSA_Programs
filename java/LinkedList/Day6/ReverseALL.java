@@ -49,17 +49,31 @@ public class ReverseALL {
 
 
         // optimal approach...
-        Node temp = head;
-        Node prev = null;
+        // Node temp = head;
+        // Node prev = null;
 
-        while (temp != null) {
-            Node front = temp.next;
-            temp.next = prev;
-            prev = temp;
-            temp = front;
-        }
+        // while (temp != null) {
+        //     Node front = temp.next;
+        //     temp.next = prev;
+        //     prev = temp;
+        //     temp = front;
+        // }
 
-        return prev;
+        // return prev;
+
+
+
+
+
+
+        // recursive...
+        Node newHead = reverseLL(head.next);
+
+        Node front = head.next;
+        front.next = head;
+        head.next = null;
+
+        return newHead;
     }
 
 
