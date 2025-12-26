@@ -69,7 +69,7 @@ public class ReverseALL {
         // recursive...
         Node newHead = reverseLL(head.next);
 
-        Node front = head.next;
+        Node front = head.next; 
         front.next = head;
         head.next = null;
 
