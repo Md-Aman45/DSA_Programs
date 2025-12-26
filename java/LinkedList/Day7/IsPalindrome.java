@@ -23,29 +23,80 @@ class Node {
 
 
 public class IsPalindrome {
+
+
+    private static Node reverseLL(Node head) {
+        if (head == null || head.next == null) return head;
+        Node temp = head;
+        Node prev = null;
+
+        while (temp != null) {
+            Node front = temp.next;
+            temp.next = prev;
+            prev = temp;
+            temp = front;
+        }
+
+        return prev;
+    }
+    
+
     private static boolean isPalindrome(Node head) {
         if (head == null || head.next == null) return true;
 
-        
+
 
         // Brute approach...
-        Node temp = head;
-        Stack<Integer> st = new Stack<>();
+        // Node temp = head;
+        // Stack<Integer> st = new Stack<>();
 
-        while (temp != null) {
-            st.push(temp.data);
-            temp = temp.next;
+        // while (temp != null) {
+        //     st.push(temp.data);
+        //     temp = temp.next;
+        // }
+
+        // temp = head;
+
+        // while (temp != null) {
+        //     if (temp.data != st.peek()) return false;
+
+        //     temp = temp.next;
+        //     st.pop();
+        // }
+
+        // return true;
+
+
+
+
+        
+
+
+        // optimal approach...
+        Node slow = head;
+        Node fast = head;
+
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
 
-        temp = head;
+        Node newHead = reverseLL(slow.next);
 
-        while (temp != null) {
-            if (temp.data != st.peek()) return false;
+        Node first = head;
+        Node second = newHead;
 
-            temp = temp.next;
-            st.pop();
+        while (second != null) {
+            if (first.data != second.data) {
+                reverseLL(newHead);
+                return false;
+            }
+
+            first = first.next;
+            second = second.next;
         }
 
+        reverseLL(newHead);
         return true;
     }
 
