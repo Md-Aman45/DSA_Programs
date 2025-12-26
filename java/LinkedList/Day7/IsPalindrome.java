@@ -40,6 +40,8 @@ public class IsPalindrome {
         return prev;
     }
     
+    
+
 
     private static boolean isPalindrome(Node head) {
         if (head == null || head.next == null) return true;
