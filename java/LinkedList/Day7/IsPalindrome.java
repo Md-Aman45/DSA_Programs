@@ -26,6 +26,7 @@ public class IsPalindrome {
     private static boolean isPalindrome(Node head) {
         if (head == null || head.next == null) return true;
 
+        
 
         // Brute approach...
         Node temp = head;
