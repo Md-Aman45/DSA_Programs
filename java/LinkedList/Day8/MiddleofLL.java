@@ -22,27 +22,42 @@ class Node {
 
 public class MiddleofLL {
     private static Node middleOfLL(Node head) {
-        Node temp = head;
-        int cnt = 0;
+        // Node temp = head;
+        // int cnt = 0;
 
-        while (temp != null) {
-            cnt++;
-            temp = temp.next;
-        }
+        // while (temp != null) {
+        //     cnt++;
+        //     temp = temp.next;
+        // }
 
-        int midNode = (cnt / 2) + 1;
+        // int midNode = (cnt / 2) + 1;
 
-        temp = head;
+        // temp = head;
 
-        while (temp != null) {
-            midNode -= 1;
+        // while (temp != null) {
+        //     midNode -= 1;
             
-            if (midNode == 0) break;
+        //     if (midNode == 0) break;
 
-            temp = temp.next;
+        //     temp = temp.next;
+        // }
+
+        // return temp;
+
+
+
+
+        // optimal approach...
+        // tortorise and hare algorithm...
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
 
-        return temp;
+        return slow;
     }
 
 
