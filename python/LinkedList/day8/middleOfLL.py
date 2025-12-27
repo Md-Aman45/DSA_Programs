@@ -7,25 +7,39 @@ class Node:
 
 
 def middleLL(head):
-    temp = head
-    cnt = 0
+    # temp = head
+    # cnt = 0
 
-    while temp is not None:
-        cnt += 1
-        temp = temp.next
+    # while temp is not None:
+    #     cnt += 1
+    #     temp = temp.next
     
-    midNode = (cnt // 2) + 1
+    # midNode = (cnt // 2) + 1
 
-    temp = head
+    # temp = head
 
-    while temp is not None:
-        midNode -= 1
-        if midNode == 0:
-            break
+    # while temp is not None:
+    #     midNode -= 1
+    #     if midNode == 0:
+    #         break
 
-        temp = temp.next
+    #     temp = temp.next
     
-    return temp
+    # return temp
+
+
+
+
+    # optimal approach...
+    # tortorise and hare algorithm...
+    slow = head
+    fast = head
+
+    while fast is not None and fast.next is not None:
+        slow = slow.next
+        fast = fast.next.next
+    
+    return slow
 
 
 
