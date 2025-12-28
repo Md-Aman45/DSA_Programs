@@ -8,23 +8,49 @@ class Node:
 
 def getIntersection(head1, head2):
 
-    
+
     # brute approach...
-    visited = set()
-    temp = head1
-    while temp is not None:
-        visited.add(temp)
-        temp = temp.next
+    # visited = set()
+    # temp = head1
+    # while temp is not None:
+    #     visited.add(temp)
+    #     temp = temp.next
 
-    temp = head2
+    # temp = head2
 
-    while temp is not None:
-        if temp in visited:
-            return temp
+    # while temp is not None:
+    #     if temp in visited:
+    #         return temp
         
-        temp = temp.next
+    #     temp = temp.next
         
-    return None
+    # return None
+
+
+
+
+
+    # optimal approach...
+    if head1 is None or head2 is None:
+        return None
+    
+    t1 = head1
+    t2 = head2
+
+    while t1 is not t2:
+        t1 = t1.next
+        t2 = t2.next
+
+        if t1 == t2:
+            return t1
+        
+        if t1 is None:
+            t1 = head2
+        
+        if t2 is None:
+            t2 = head1
+    
+    return t1
 
 
 
