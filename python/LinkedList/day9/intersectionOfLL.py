@@ -7,6 +7,8 @@ class Node:
 
 
 def getIntersection(head1, head2):
+
+    
     # brute approach...
     visited = set()
     temp = head1

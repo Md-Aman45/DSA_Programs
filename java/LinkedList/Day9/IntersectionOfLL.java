@@ -25,32 +25,51 @@ public class IntersectionOfLL {
     private static Node intersectionLL(Node head1, Node head2) {
 
         // brute approach...
-        HashSet<Node> set = new HashSet<>();
-        Node temp = head1;
+        // HashSet<Node> set = new HashSet<>();
+        // Node temp = head1;
 
-        while (temp != null) {
-            set.add(temp);
-            temp = temp.next;
+        // while (temp != null) {
+        //     set.add(temp);
+        //     temp = temp.next;
+        // }
+
+        // temp = head2;
+
+        // while (temp != null) {
+        //     if (set.contains(temp)) {
+        //         return temp;
+        //     }
+        //     temp = temp.next;
+        // }
+
+        // return null;
+
+
+
+        
+        // optimal approach...
+        if (head1 == null || head2 == null) return null;
+
+        Node t1 = head1;
+        Node t2 = head2;
+
+        while (t1 != t2) {
+            t1 = t1.next;
+            t2 = t2.next;
+
+            if (t1 == t2) return t1;
+
+            if (t1 == null) t1 = head2;
+            if (t2 == null) t2 = head1;
         }
-
-        temp = head2;
-
-        while (temp != null) {
-            if (set.contains(temp)) {
-                return temp;
-            }
-            temp = temp.next;
-        }
-
-        return null;
-
+        return t1;
     }
 
 
 
 
 
-    
+
 
 
 
