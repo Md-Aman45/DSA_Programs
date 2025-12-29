@@ -7,16 +7,33 @@ class Node:
 
 def detectLoop(head):
     # brute approach...
-    visited = set()
-    temp = head
+    # visited = set()
+    # temp = head
 
-    while temp is not None:
-        if temp in visited:
+    # while temp is not None:
+    #     if temp in visited:
+    #         return True
+
+    #     visited.add(temp)
+
+    #     temp = temp.next
+    
+    # return False
+
+
+
+
+
+    # optimal approach...
+    slow = head
+    fast = head
+
+    while fast is not None and fast.next is not None:
+        slow = slow.next
+        fast = fast.next.next
+
+        if slow == fast:
             return True
-
-        visited.add(temp)
-
-        temp = temp.next
     
     return False
 
