@@ -23,26 +23,54 @@ class Node {
 public class LengthOfLoop {
     private static Integer lengthOfLoop(Node head) {
         // brute approach...
-        HashMap<Node, Integer> mpp = new HashMap<>();
-        Node temp = head;
-        int timer = 1;
+        // HashMap<Node, Integer> mpp = new HashMap<>();
+        // Node temp = head;
+        // int timer = 1;
 
-        while (temp != null) {
-            if (mpp.containsKey(temp)) {
-                int value = mpp.get(temp);
-                return (timer - value);
-            }
-            mpp.put(temp, timer);
-            timer++;
-            temp = temp.next;
+        // while (temp != null) {
+        //     if (mpp.containsKey(temp)) {
+        //         int value = mpp.get(temp);
+        //         return (timer - value);
+        //     }
+        //     mpp.put(temp, timer);
+        //     timer++;
+        //     temp = temp.next;
+        // }
+
+        // return 0;
+
+
+
+
+
+        // optimal approach...
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) return findLength(slow, fast);
         }
-
         return 0;
     }
 
 
+    private static Integer findLength(Node slow, Node fast) {
+        int cnt = 1;
+        fast = fast.next;
 
-    
+        while (slow != fast) {
+            cnt++;
+            fast = fast.next;
+        }
+        return cnt;
+    }
+
+
+
+
 
 
 
