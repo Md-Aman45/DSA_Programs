@@ -20,50 +20,25 @@ class Node {
 }
 
 
-public class DetectCycle {
-    private static Boolean detectCycle(Node head) {
-        // Brute Approach...
-        // HashSet<Node> set = new HashSet<>();
-        // Node temp = head;
+public class LengthOfLoop {
+    private static Integer lengthOfLoop(Node head) {
+        // brute approach...
+        HashMap<Node, Integer> mpp = new HashMap<>();
+        Node temp = head;
+        int timer = 1;
 
-        // while (temp != null) {
-        //     if (set.contains(temp)) {
-        //         return true;
-        //     }
-
-        //     set.add(temp);
-        //     temp = temp.next;
-        // }
-
-        // return false;
-
-
-
-        
-
-
-
-
-
-        // optimal approach...
-        Node slow = head;
-        Node fast = head;
-
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-
-            if (slow == fast) return true;
+        while (temp != null) {
+            if (mpp.containsKey(temp)) {
+                int value = mpp.get(temp);
+                return (timer - value);
+            }
+            mpp.put(temp, timer);
+            timer++;
+            temp = temp.next;
         }
 
-        return false;
+        return 0;
     }
-
-
-
-
-
-
 
 
 
@@ -83,7 +58,6 @@ public class DetectCycle {
         for (int i = 0; i < n; i++) {
             int val = sc.nextInt();
             Node newNode = new Node(val);
-
             if (head == null) {
                 head = newNode;
                 tail = newNode;
@@ -93,8 +67,8 @@ public class DetectCycle {
             }
         }
 
-        // Creating a cycle (optional)
-        System.out.print("Enter position to create cycle (1-based, 0 for no cycle): ");
+        // Create loop
+        System.out.print("Enter position to create loop (0 for no loop): ");
         int pos = sc.nextInt();
 
         if (pos > 0) {
@@ -105,13 +79,12 @@ public class DetectCycle {
             tail.next = temp;
         }
 
-        // Check for cycle
-        boolean result = detectCycle(head);
+        int result = lengthOfLoop(head);
 
-        if (result)
-            System.out.println("Cycle detected in linked list.");
+        if (result == 0)
+            System.out.println("No loop detected");
         else
-            System.out.println("No cycle found in linked list.");
+            System.out.println("Length of loop: " + result);
 
         sc.close();
     }
