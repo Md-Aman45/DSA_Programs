@@ -23,16 +23,35 @@ class Node {
 public class DetectCycle {
     // Brute Approach...
     private static Boolean detectCycle(Node head) {
-        HashSet<Node> set = new HashSet<>();
-        Node temp = head;
+        // HashSet<Node> set = new HashSet<>();
+        // Node temp = head;
 
-        while (temp != null) {
-            if (set.contains(temp)) {
-                return true;
-            }
+        // while (temp != null) {
+        //     if (set.contains(temp)) {
+        //         return true;
+        //     }
 
-            set.add(temp);
-            temp = temp.next;
+        //     set.add(temp);
+        //     temp = temp.next;
+        // }
+
+        // return false;
+
+
+
+
+
+
+
+        // optimal approach...
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) return true;
         }
 
         return false;
@@ -43,7 +62,8 @@ public class DetectCycle {
 
 
 
-    
+
+
 
 
 
