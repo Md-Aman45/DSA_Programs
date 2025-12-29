@@ -7,20 +7,51 @@ class Node:
 
 def lengthOfloop(head):
     # brute approach...
-    mpp = {}
-    temp = head
-    timer = 1
+    # mpp = {}
+    # temp = head
+    # timer = 1
 
-    while temp:
-        if temp in mpp:
-            value = mpp[temp]
-            return timer - value
+    # while temp:
+    #     if temp in mpp:
+    #         value = mpp[temp]
+    #         return timer - value
         
-        mpp[temp] = timer
-        timer += 1
-        temp = temp.next
+    #     mpp[temp] = timer
+    #     timer += 1
+    #     temp = temp.next
     
+    # return 0
+
+
+
+
+
+
+    # optimal approach...
+    slow = head
+    fast = head
+
+    while fast is not None and fast.next is not None:
+        slow = slow.next
+        fast = fast.next.next
+
+        if slow == fast:
+            return findLength(slow, fast)
+        
     return 0
+
+
+
+
+def findLength(slow, fast):
+    cnt = 1
+    fast = fast.next
+
+    while slow is not fast:
+        cnt += 1
+        fast = fast.next
+    
+    return cnt
 
 
 
