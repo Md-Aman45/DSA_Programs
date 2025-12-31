@@ -50,6 +50,8 @@ public class DeleteMiddle {
 
 
 
+        
+
         // optimal approach...
         Node slow = head;
         Node fast = head;
