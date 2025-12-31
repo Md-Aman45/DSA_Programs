@@ -20,6 +20,8 @@ class Node {
 }
 
 
+
+
 public class DeleteAllOccur {
     private static Node deleteAllOccur(Node head, int key) {
         Node temp = head;
