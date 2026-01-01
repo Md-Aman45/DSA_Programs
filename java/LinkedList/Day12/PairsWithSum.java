@@ -21,23 +21,62 @@ class Node {
 
 
 public class PairsWithSum {
+
+    public static Node findTail(Node head) {
+        Node tail = head;
+        while (tail.next != null) tail = tail.next;
+        return tail;
+    }
+
+
+    
     private static List<List<Integer>> pairWithSum(Node head, int target) {
+
+        // brute approach...
+        // List<List<Integer>> ans = new ArrayList<>();
+        // Node temp1 = head;
+        // if (head == null) return ans;
+
+        // while (temp1 != null) {
+        //     Node temp2 = temp1.next;
+
+        //     while (temp2 != null && temp1.data + temp2.data <= target) {
+        //         if (temp1.data + temp2.data == target) {
+        //             ans.add(Arrays.asList(temp1.data, temp2.data));
+        //         }
+        //         temp2 = temp2.next;
+        //     }
+            
+        //     temp1 = temp1.next;
+        // }
+        // return ans;
+
+
+
+
+
+
+        // optimal approach...
+        Node left = head;
+        Node right = findTail(head);
         List<List<Integer>> ans = new ArrayList<>();
-        Node temp1 = head;
+
         if (head == null) return ans;
 
-        while (temp1 != null) {
-            Node temp2 = temp1.next;
-
-            while (temp2 != null && temp1.data + temp2.data <= target) {
-                if (temp1.data + temp2.data == target) {
-                    ans.add(Arrays.asList(temp1.data, temp2.data));
-                }
-                temp2 = temp2.next;
+        while (left.data < right.data) {
+            if (left.data + right.data == target) {
+                ans.add(Arrays.asList(left.data, right.data));
+                left = left.next;
+                right = right.prev;
             }
-            
-            temp1 = temp1.next;
+            else if (left.data + right.data < target) {
+                left = left.next;
+            }
+            else {
+                right = right.prev;
+            }
         }
+
         return ans;
     }
 
@@ -46,7 +85,7 @@ public class PairsWithSum {
 
 
 
-    
+
 
     // ----------- DRIVER CODE -----------
     public static void main(String[] args) {
