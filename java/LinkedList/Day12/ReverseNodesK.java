@@ -124,6 +124,7 @@ public class ReverseNodesK {
         System.out.print("Result: ");
         printList(head);
 
+        
         sc.close();
     }
 }
