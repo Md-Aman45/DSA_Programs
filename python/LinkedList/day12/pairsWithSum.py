@@ -5,24 +5,67 @@ class Node:
         self.prev = prev
 
     
+
+
+
+
+def findTail(head):
+    tail = head
+    while tail.next is not None:
+        tail = tail.next
+    
+    return tail
+
+
+
 def pairWithSum(head, target):
+
+    # brute approach...
+    # ans = []
+    # temp1 = head
+
+    # if head is None:
+    #     return ans
+    
+    # while temp1:
+    #     temp2 = temp1.next
+
+    #     while temp2:
+    #         if temp1.data + temp2.data == target:
+    #             ans.append((temp1.data, temp2.data))
+    #         temp2 = temp2.next
+        
+    #     temp1 = temp1.next
+    
+    # return ans
+
+
+
+
+
+
+    # optimal appproach...
+    left = head
+    right = findTail(head)
     ans = []
-    temp1 = head
 
     if head is None:
         return ans
-    
-    while temp1:
-        temp2 = temp1.next
 
-        while temp2:
-            if temp1.data + temp2.data == target:
-                ans.append((temp1.data, temp2.data))
-            temp2 = temp2.next
+    while left.data < right.data:
+        if left.data + right.data == target:
+            ans.append((left.data, right.data))
+            left = left.next
+            right = right.prev
         
-        temp1 = temp1.next
-    
+        elif left.data + right.data < target:
+            left = left.next
+        
+        else:
+            right = right.prev
+        
     return ans
+
 
 
 
