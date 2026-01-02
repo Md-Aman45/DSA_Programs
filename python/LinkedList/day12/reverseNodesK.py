@@ -18,6 +18,8 @@ def reverseLL(head):
         temp.next = prev
         prev = temp
         temp = front
+    
+    return prev
 
 
 
