@@ -44,6 +44,8 @@ public class RemoveDuplicates {
 
 
 
+
+    // print DLL...
     private static void printList(Node head) {
         Node temp = head;
         while (temp != null) {
@@ -53,7 +55,9 @@ public class RemoveDuplicates {
         System.out.println();
     }
 
-    // Main
+
+
+    // Main...
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
