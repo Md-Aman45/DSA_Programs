@@ -96,5 +96,7 @@ public class RotateAList {
         printList(head);
 
         sc.close();
+
+        
     }
 }
