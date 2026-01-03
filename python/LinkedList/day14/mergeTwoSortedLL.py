@@ -6,40 +6,71 @@ class Node:
 
 
 
-def convertArrToLL(arr):
-    if not arr:
-        return None
+# def convertArrToLL(arr):
+#     if not arr:
+#         return None
 
-    head = Node(arr[0])
-    temp = head
+#     head = Node(arr[0])
+#     temp = head
 
-    for i in range(1, len(arr)):
-        temp.next = Node(arr[i])
-        temp = temp.next
+#     for i in range(1, len(arr)):
+#         temp.next = Node(arr[i])
+#         temp = temp.next
 
-    return head
+#     return head
 
 
 
 def mergeTwoSorted(head1, head2):
-    arr = []
+    # arr = []
 
-    temp1 = head1
-    temp2 = head2
+    # temp1 = head1
+    # temp2 = head2
 
-    while temp1:
-        arr.append(temp1.data)
-        temp1 = temp1.next
+    # while temp1:
+    #     arr.append(temp1.data)
+    #     temp1 = temp1.next
     
-    while temp2:
-        arr.append(temp2.data)
-        temp2 = temp2.next
+    # while temp2:
+    #     arr.append(temp2.data)
+    #     temp2 = temp2.next
     
-    arr.sort()
+    # arr.sort()
 
-    head = convertArrToLL(arr)
+    # head = convertArrToLL(arr)
 
-    return head
+    # return head
+
+
+
+
+    if head1 == None:
+        return head2
+    if head2 == None:
+        return head1
+    
+    t1 = head1
+    t2 = head2
+    dNode = Node(-1)
+    temp = dNode
+
+    while t1 and t2:
+        if t1.data < t2.data:
+            temp.next = t1
+            temp = t1
+            t1 = t1.next
+        
+        else:
+            temp.next = t2
+            temp = t2
+            t2 = t2.next
+        
+    if t1:
+        temp.next = t1
+    else:
+        temp.next = t2
+
+    return dNode.next
 
 
 

@@ -53,6 +53,11 @@ public class MergeTwoSortedLL {
 
         // return head;
 
+
+
+
+
+
         // optimal approach...
         if (head1 == null)
             return head2;
@@ -84,6 +89,11 @@ public class MergeTwoSortedLL {
 
         return dNode.next;
     }
+
+
+
+
+    
 
     // Print linked list...
     private static void printList(Node head) {
