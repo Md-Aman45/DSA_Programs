@@ -22,6 +22,7 @@ class FlatNode {
 public class FlatteningALL {
 
 
+/* 
     public static FlatNode convertToLL(ArrayList<Integer> arr) {
         if (arr.size() == 0) return null;
 
@@ -35,10 +36,42 @@ public class FlatteningALL {
         }
         return head;
     }
+*/
+
+
+
+
+
+    public static FlatNode mergeTwoLL(FlatNode list1, FlatNode list2) {
+        FlatNode dNode = new FlatNode(-1);
+        FlatNode res = dNode;
+
+        while (list1 != null && list2 != null) {
+            if (list1.data <= list2.data) {
+                res.child = list1;
+                list1 = list1.child;
+            }
+            else {
+                res.child = list2;
+                list2 = list2.child;
+            }
+
+            res = res.child;
+            res.next = null;
+        }
+
+        if (list1 != null) res.child = list1;
+        else res.child = list2;
+
+        return dNode.child;
+    }
+
 
 
 
     private static FlatNode flattenLL(FlatNode head) {
+    
+    /*
         ArrayList<Integer> arr = new ArrayList<>();
         FlatNode temp = head;
 
@@ -57,7 +90,21 @@ public class FlatteningALL {
         head = convertToLL(arr);
 
         return head;
+    */
+
+
+        
+
+
+        // optimal approach...
+        if (head == null || head.next == null) return head;
+
+        FlatNode mergedHead = flattenLL(head.next);
+
+        return mergeTwoLL(head, mergedHead);
     }
+
+
 
 
 
@@ -114,7 +161,7 @@ public class FlatteningALL {
         System.out.print("Flattened List: ");
         printList(flattened);
 
-        
+
         sc.close();
     }
 }
