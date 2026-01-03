@@ -43,7 +43,7 @@ def mergeTwoSorted(head1, head2):
 
 
 
-
+    # optimal approach...
     if head1 == None:
         return head2
     if head2 == None:
