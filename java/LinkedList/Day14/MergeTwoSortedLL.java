@@ -1,4 +1,5 @@
 package Day14;
+
 import java.util.*;
 
 class Node {
@@ -16,49 +17,73 @@ class Node {
     }
 }
 
-
 public class MergeTwoSortedLL {
 
-    private static Node convertarrToLL(ArrayList<Integer> arr) {
-        if (arr.size() == 0) return null;
+    // private static Node convertarrToLL(ArrayList<Integer> arr) {
+    // if (arr.size() == 0) return null;
 
-        Node head = new Node(arr.get(0));
-        Node temp = head;
+    // Node head = new Node(arr.get(0));
+    // Node temp = head;
 
-        for (int i = 1; i < arr.size(); i++) {
-            temp.next = new Node(arr.get(i));
-            temp = temp.next;
-        }
-        return head;
-    }
-
+    // for (int i = 1; i < arr.size(); i++) {
+    // temp.next = new Node(arr.get(i));
+    // temp = temp.next;
+    // }
+    // return head;
+    // }
 
     private static Node mergeTwoSortedL(Node head1, Node head2) {
-        ArrayList<Integer> arr = new ArrayList<>();
-        Node temp1 = head1;
-        Node temp2 = head2;
+        // ArrayList<Integer> arr = new ArrayList<>();
+        // Node temp1 = head1;
+        // Node temp2 = head2;
 
-        while (temp1 != null) {
-            arr.add(temp1.data);
-            temp1 = temp1.next;
+        // while (temp1 != null) {
+        // arr.add(temp1.data);
+        // temp1 = temp1.next;
+        // }
+
+        // while (temp2 != null) {
+        // arr.add(temp2.data);
+        // temp2 = temp2.next;
+        // }
+
+        // Collections.sort(arr);
+
+        // Node head = convertarrToLL(arr);
+
+        // return head;
+
+        // optimal approach...
+        if (head1 == null)
+            return head2;
+        if (head2 == null)
+            return head1;
+
+        Node t1 = head1;
+        Node t2 = head2;
+
+        Node dNode = new Node(-1);
+        Node temp = dNode;
+
+        while (t1 != null && t2 != null) {
+            if (t1.data < t2.data) {
+                temp.next = t1;
+                temp = t1;
+                t1 = t1.next;
+            } else {
+                temp.next = t2;
+                temp = t2;
+                t2 = t2.next;
+            }
         }
 
-        while (temp2 != null) {
-            arr.add(temp2.data);
-            temp2 = temp2.next;
-        }
+        if (t1 != null)
+            temp.next = t1;
+        else
+            temp.next = t2;
 
-        Collections.sort(arr);
-
-        Node head = convertarrToLL(arr);
-
-        return head;
+        return dNode.next;
     }
-
-
-
-
-
 
     // Print linked list...
     private static void printList(Node head) {
