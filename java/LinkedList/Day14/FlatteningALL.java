@@ -114,5 +114,7 @@ public class FlatteningALL {
         System.out.print("Flattened List: ");
         printList(flattened);
 
+        
+        sc.close();
     }
 }
