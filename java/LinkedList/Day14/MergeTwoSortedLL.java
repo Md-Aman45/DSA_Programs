@@ -69,11 +69,11 @@ public class MergeTwoSortedLL {
         System.out.println();
     }
 
-    // Main method
+    // Main method...
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // First list
+        // First list...
         System.out.print("Enter number of nodes in first list: ");
         int n1 = sc.nextInt();
 
@@ -90,7 +90,7 @@ public class MergeTwoSortedLL {
             }
         }
 
-        // Second list
+        // Second list...
         System.out.print("Enter number of nodes in second list: ");
         int n2 = sc.nextInt();
 
@@ -107,11 +107,13 @@ public class MergeTwoSortedLL {
             }
         }
 
-        // Merge
+        // Merge...
         Node mergedHead = mergeTwoSortedL(head1, head2);
 
-        // Output
+        // Output...
         System.out.print("Merged Sorted List: ");
         printList(mergedHead);
+
+        sc.close();
     }
 }
