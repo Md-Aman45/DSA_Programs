@@ -42,6 +42,8 @@ public class FlatteningALL {
 
 
 
+
+
     public static FlatNode mergeTwoLL(FlatNode list1, FlatNode list2) {
         FlatNode dNode = new FlatNode(-1);
         FlatNode res = dNode;

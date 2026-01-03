@@ -5,41 +5,83 @@ class Node:
         self.bottom = bottom
 
     
-def convertArrToLL(arr):
-    if not arr:
-        return None
-    
-    head = Node(arr[0])
-    temp = head
 
-    for i in range(1, len(arr)):
-        newNode = Node(arr[i])
-        temp.bottom = newNode
-        temp = temp.bottom
+
+# def convertArrToLL(arr):
+#     if not arr:
+#         return None
     
-    return head
+#     head = Node(arr[0])
+#     temp = head
+
+#     for i in range(1, len(arr)):
+#         newNode = Node(arr[i])
+#         temp.bottom = newNode
+#         temp = temp.bottom
+    
+#     return head
+
+
+
+
+def mergeTwoLL(list1, list2):
+    dNode = Node(-1)
+    res = dNode
+
+    while list1 and list2:
+        if list1.data <= list2.data:
+            res.bottom = list1
+            list1 = list1.bottom
+        else:
+            res.bottom = list2
+            list2 = list2.bottom
+        
+        res = res.bottom
+        res.next = None
+        
+    if list1:
+        res.bottom = list1
+    else:
+        res.bottom = list2
+    
+    return dNode.bottom
+
 
 
 
 
 def flattenALL(head):
-    arr = []
-    temp = head
+    # arr = []
+    # temp = head
 
-    while temp:
-        t2 = temp
+    # while temp:
+    #     t2 = temp
 
-        while t2:
-            arr.append(t2.data)
-            t2 = t2.bottom
+    #     while t2:
+    #         arr.append(t2.data)
+    #         t2 = t2.bottom
 
-        temp = temp.next
+    #     temp = temp.next
     
-    arr.sort()
+    # arr.sort()
 
-    head = convertArrToLL(arr)
+    # head = convertArrToLL(arr)
 
-    return head
+    # return head
+
+
+
+
+
+    # optimal approach...
+    if head is None or head.next is None:
+        return head
+
+    mergedHead = flattenALL(head.next)
+    return mergeTwoLL(head, mergedHead)
+
+
+
 
 
 
