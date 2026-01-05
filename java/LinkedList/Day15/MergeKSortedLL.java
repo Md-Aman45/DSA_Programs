@@ -99,5 +99,7 @@ public class MergeKSortedLL {
 
         System.out.print("Merged Sorted List: ");
         printList(mergedHead);
+
+        sc.close();
     }
 }
