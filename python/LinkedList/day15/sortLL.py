@@ -4,29 +4,98 @@ class Node:
         self.next = next
 
 
+
+
+def findMiddle(head):
+    if head is None or head.next is None:
+        return head
+    
+    slow = head
+    fast = head.next
+
+    while fast is not None and fast.next is not None:
+        slow = slow.next
+        fast = fast.next.next
+
+    return slow
+
+
+
+
+def mergeTwoList(head1, head2):
+    if head1 == None:
+        return head2
+    if head2 == None:
+        return head1
+    
+    t1 = head1
+    t2 = head2
+    dNode = Node(-1)
+    temp = dNode
+
+    while t1 and t2:
+        if t1.data < t2.data:
+            temp.next = t1
+            temp = t1
+            t1 = t1.next
+        
+        else:
+            temp.next = t2
+            temp = t2
+            t2 = t2.next
+        
+    if t1:
+        temp.next = t1
+    else:
+        temp.next = t2
+
+    return dNode.next
+
+
+
+
+
 def sortll(head):
     if head is None or head.next is None:
         return head
     
 
-    arr = []
-    temp = head
+    # arr = []
+    # temp = head
     
-    while temp:
-        arr.append(temp.data)
-        temp = temp.next
+    # while temp:
+    #     arr.append(temp.data)
+    #     temp = temp.next
     
-    arr.sort()
+    # arr.sort()
 
-    i = 0
-    temp = head
+    # i = 0
+    # temp = head
 
-    while temp:
-        temp.data = arr[i]
-        i = i + 1
-        temp = temp.next
+    # while temp:
+    #     temp.data = arr[i]
+    #     i = i + 1
+    #     temp = temp.next
     
-    return head
+    # return head
+
+
+
+
+
+    # optimal approach...
+    middle = findMiddle(head)
+    leftHead = head
+    rightHead = middle.next
+    middle.next = None
+
+    leftHead = sortll(leftHead)
+    rightHead = sortll(rightHead)
+
+    return mergeTwoList(leftHead, rightHead)
+
+
+
 
 
 
