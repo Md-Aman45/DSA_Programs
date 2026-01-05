@@ -18,6 +18,7 @@ class Node {
 
 public class MergeKSortedLL {
 
+/*
     private static Node convertArrToLL(ArrayList<Integer> arr) {
         if (arr.size() == 0) return null;
 
@@ -30,24 +31,54 @@ public class MergeKSortedLL {
         }
         return head;
     }
-
+*/
 
 
     private static Node mergeKSorted(ArrayList<Node> lists) {
-        ArrayList<Integer> arr = new ArrayList<>();
+        // ArrayList<Integer> arr = new ArrayList<>();
+
+        // for (Node head : lists) {
+        //     Node temp = head;
+        //     while (temp != null) {
+        //         arr.add(temp.data);
+        //         temp = temp.next;
+        //     }
+        // }
+
+        // Collections.sort(arr);
+
+        // Node head = convertArrToLL(arr);
+        // return head;
+
+
+
+
+        // optimal approach...
+        PriorityQueue<Node> pq = new PriorityQueue<>(
+            (a, b) -> a.data - b.data
+        );
 
         for (Node head : lists) {
-            Node temp = head;
-            while (temp != null) {
-                arr.add(temp.data);
-                temp = temp.next;
+            if (head != null) {
+                pq.add(head);
             }
         }
 
-        Collections.sort(arr);
 
-        Node head = convertArrToLL(arr);
-        return head;
+        Node dNode = new Node(-1);
+        Node temp = dNode;
+
+        while (!pq.isEmpty()) {
+            Node node = pq.poll();
+
+            temp.next = node;
+            temp = node;
+
+            if (temp.next != null) {
+                pq.add(node.next);
+            }
+        }
+        return dNode.next;
     }
 
 
