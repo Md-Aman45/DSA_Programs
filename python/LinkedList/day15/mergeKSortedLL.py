@@ -1,3 +1,5 @@
+import heapq
+
 class Node:
     def __init__(self, data, next=None):
         self.data = data
@@ -6,36 +8,63 @@ class Node:
 
 
 
-def convert_arr_to_ll(arr):
-    if not arr:
-        return None
 
-    head = Node(arr[0])
-    temp = head
+# def convert_arr_to_ll(arr):
+#     if not arr:
+#         return None
 
-    for i in range(1, len(arr)):
-        temp.next = Node(arr[i])
-        temp = temp.next
+#     head = Node(arr[0])
+#     temp = head
 
-    return head
+#     for i in range(1, len(arr)):
+#         temp.next = Node(arr[i])
+#         temp = temp.next
+
+#     return head
 
 
 
 
 
 def mergeKSorted(lists):
-    arr = []
 
-    for head in lists:
-        temp = head
-        while temp:
-            arr.append(temp.data)
-            temp = temp.next
+    # arr = []
+
+    # for head in lists:
+    #     temp = head
+    #     while temp:
+    #         arr.append(temp.data)
+    #         temp = temp.next
     
-    arr.sort()
+    # arr.sort()
 
-    head = convert_arr_to_ll(arr)
-    return head
+    # head = convert_arr_to_ll(arr)
+    # return head
+
+
+
+
+
+    # optimal approach...
+    heap = []
+
+    for i, node in enumerate(lists):
+        if node:
+            heapq.heappush(heap, (node.data, i, node))
+        
+    dNode = Node(-1)
+    temp = dNode
+
+    while heap:
+        val, i, node = heapq.heappop(heap)
+
+        temp.next = node
+        temp = node
+
+        if node.next:
+            heapq.heappush(heap, (node.next.data, i, node.next))
+
+    return dNode.next
 
 
 
