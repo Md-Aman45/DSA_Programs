@@ -19,6 +19,9 @@ class Node {
 
 public class SortLL {
     private static Node sortLL(Node head) {
+        if (head == null || head.next == null) return head;
+
+        
         ArrayList<Integer> arr = new ArrayList<>();
         Node temp = head;
 
@@ -40,6 +43,8 @@ public class SortLL {
 
         return head;
     }
+
+
 
 
 

@@ -70,7 +70,7 @@ def mergeKSorted(lists):
 
 
 
-
+# ----------- print list -----------
 def printList(head):
     while head:
         print(head.data, end=" ")
