@@ -24,6 +24,8 @@ public class CloneALL {
     private static Node cloneALL(Node head) {
         if (head == null) return null;
 
+    
+    /* 
         Node temp = head;
         HashMap<Node, Node> mpp = new HashMap<>();
 
@@ -44,6 +46,58 @@ public class CloneALL {
         }
 
         return mpp.get(head);
+
+    */
+
+
+
+
+        
+
+        // optimal approach...
+
+        // (1) Insert copy nodes in between...
+        Node temp = head;
+        
+        while (temp != null) {
+            Node copyNode = new Node(temp.data);
+            copyNode.next = temp.next;
+            temp.next = copyNode;
+
+            temp = temp.next.next;
+        }
+
+
+        // (2) Connect the random pointer...
+        temp = head;
+
+        while (temp != null) {
+            Node copyNode = temp.next;
+
+            if (temp.random != null) {
+                copyNode.random = temp.random.next;
+            }
+            else {
+                copyNode.random = null;
+            }
+
+            temp = temp.next.next;
+        }
+
+
+        // (3) Connect the next pointer...
+        Node dNode = new Node(-1);
+        Node res = dNode;
+        temp = head;
+
+        while (temp != null) {
+            res.next = temp.next;
+            temp.next = temp.next.next;
+            res = res.next;
+            temp = temp.next;
+        }
+
+        return dNode.next;
     }
 
 
