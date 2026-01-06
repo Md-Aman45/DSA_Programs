@@ -77,7 +77,7 @@ public class CloneALL {
             nodes[i] = new Node(sc.nextInt());
         }
 
-        // Link next pointers
+        // Link next pointers...
         for (int i = 0; i < n - 1; i++) {
             nodes[i].next = nodes[i + 1];
         }
