@@ -10,25 +10,72 @@ def cloneALinkedList(head):
     if head is None:
         return None
     
-    mpp = {}
-    temp = head
 
-    while temp:
-        newNode = Node(temp.data)
-        mpp[temp] = newNode
-        temp = temp.next
+
+
+    # mpp = {}
+    # temp = head
+
+    # while temp:
+    #     newNode = Node(temp.data)
+    #     mpp[temp] = newNode
+    #     temp = temp.next
         
     
+    # temp = head
+
+    # while temp:
+    #     copyNode = mpp[temp]
+    #     copyNode.next = mpp.get(temp.next)
+    #     copyNode.random = mpp.get(temp.random)
+    #     temp = temp.next
+
+    
+    # return mpp[head]
+
+
+
+
+
+
+    # optimal approach...
+
+    # (1) Insert copy nodes in between...
+    temp = head
+    while temp:
+        copyNode = Node(temp.data)
+        copyNode.next = temp.next
+        temp.next = copyNode
+        temp = temp.next.next
+    
+
+    # (2) Connect the random pointer...
+    temp = head
+
+    while (temp):
+        copyNode = temp.next
+        
+        if (temp.random):
+            copyNode.random = temp.random.next
+        else:
+            copyNode.random = None
+        
+        temp = temp.next.next
+
+    
+    # (3) Connect the next pointer...
+    dNode = Node(-1)
+    res = dNode
     temp = head
 
     while temp:
-        copyNode = mpp[temp]
-        copyNode.next = mpp.get(temp.next)
-        copyNode.random = mpp.get(temp.random)
+        res.next = temp.next
+        temp.next = temp.next.next
+        res = res.next
         temp = temp.next
-
     
-    return mpp[head]
+    return dNode.next
+
 
 
 
