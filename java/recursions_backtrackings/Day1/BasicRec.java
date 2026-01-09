@@ -116,6 +116,8 @@ public class BasicRec {
         int n = sc.nextInt();
 
         ntoOneBack(n);
+
+        sc.close();
     }
 
 }
