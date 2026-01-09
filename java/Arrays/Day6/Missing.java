@@ -71,7 +71,7 @@ public class Missing {
 
         // // optimal approach 2 (using xor)...
         int XOR1 = 0, XOR2 = 0;
-        for (int i = 1; i <= n; i ++) {
+        for (int i = 1; i <= n; i++) {
             XOR1 = XOR1 ^ i;
         }
 
