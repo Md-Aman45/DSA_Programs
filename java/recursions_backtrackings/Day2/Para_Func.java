@@ -110,6 +110,8 @@ public class Para_Func {
 
         System.out.println("result = " + result);
 
+        sc.close();
+
     }
 
 }
