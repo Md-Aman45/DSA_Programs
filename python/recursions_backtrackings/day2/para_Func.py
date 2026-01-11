@@ -60,3 +60,8 @@ def factOfN(n):
 n = int(input("Enter n = "))
 result = factOfN(n)
 print("result = ", result)
+
+
+
+
+# do nothing...
