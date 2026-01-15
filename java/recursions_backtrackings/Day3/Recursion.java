@@ -2,7 +2,7 @@ package recursions_backtrackings.Day3;
 import java.util.*;
 
 public class Recursion {
-
+/* 
     // Reverse an array...
     public static void reverse(int l, int r, int[] arr) {
         if (l >= r) return;
@@ -13,6 +13,8 @@ public class Recursion {
 
         reverse(l + 1, r - 1, arr);
     }
+
+
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -36,5 +38,81 @@ public class Recursion {
 
         sc.close();
     }
+*/
 
+
+
+
+/* 
+    // Reverse an array...
+    public static void reverse(int i, int[] arr) {
+        int n = arr.length;
+        if (i >= n/2) return;
+
+        int temp = arr[i];
+        arr[i] = arr[n - i - 1];
+        arr[n - i - 1] = temp;
+
+        reverse(i + 1, arr);
+    }
+
+    
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the size of array: ");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+
+        System.out.print("Enter array elements: ");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        reverse(0, arr);
+
+        System.out.print("Reversed array: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+
+        sc.close();
+    }
+
+*/
+
+
+
+
+    // Check string is palindrome or not...
+    public static boolean palindrome(int i, String s) {
+        int n = s.length();
+        if (i >= n/2) return true;
+
+        if (s.charAt(i) != s.charAt(n - i - 1)) return false;
+
+        return palindrome(i + 1, s);
+    }
+
+    
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String s = sc.nextLine();
+
+        boolean isPalindrome = palindrome(0, s);
+
+        if (isPalindrome) {
+            System.out.println("String is a Palindrome");
+        } else {
+            System.out.println("String is NOT a Palindrome");
+        }
+
+        sc.close();
+
+    }
 }
