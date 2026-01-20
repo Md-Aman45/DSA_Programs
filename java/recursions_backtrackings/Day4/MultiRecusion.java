@@ -19,5 +19,6 @@ public class MultiRecusion {
         int ans = fibonacci(n);
         System.out.println("Fibonacci = " + ans);
 
+        sc.close();
     }
 }
