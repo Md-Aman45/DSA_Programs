@@ -34,5 +34,7 @@ public class SubsequenceRecursion {
         ArrayList<Integer> ds = new ArrayList<>();
 
         Subsequence(0, arr, ds);
+
+        sc.close();
     }
 }
