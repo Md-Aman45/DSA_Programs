@@ -45,5 +45,7 @@ public class RecursionPattern {
         ArrayList<Integer> ds = new ArrayList<>();
 
         printSubsequence(0, arr, ds, 0, k);
+
+        sc.close();
     }
 }
