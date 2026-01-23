@@ -24,3 +24,6 @@ k = int(input("Enter target sum K: "))
 ds = []
 
 printSubsequence(0, arr, ds, 0, k)
+
+
+
