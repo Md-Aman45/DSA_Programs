@@ -45,6 +45,7 @@ public class Sum_I {
 
         findCombination(0, arr, tar, ans, ds);
 
+        sc.close();
 
     }
 }
