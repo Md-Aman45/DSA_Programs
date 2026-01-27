@@ -32,7 +32,7 @@ public class Sum_II {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
-        
+
         Arrays.sort(arr);
 
         System.out.print("Enter target: ");
@@ -44,5 +44,7 @@ public class Sum_II {
 
 
         findCombinations(0, arr, tar, ans, ds);
+
+        sc.close();
     }
 }
