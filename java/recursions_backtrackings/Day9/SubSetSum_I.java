@@ -37,5 +37,8 @@ public class SubSetSum_I {
         for (int val : sumSub) {
             System.out.print(val + " ");
         }
+
+
+        sc.close();
     }
 }
