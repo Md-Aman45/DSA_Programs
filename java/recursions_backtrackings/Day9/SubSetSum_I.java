@@ -15,8 +15,6 @@ public class SubSetSum_I {
         SumSubSet(ind + 1, sum, arr, n, subSet);
     }
 
-
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -32,12 +30,11 @@ public class SubSetSum_I {
         ArrayList<Integer> sumSub = new ArrayList<>();
         SumSubSet(0, 0, arr, n, sumSub);
         Collections.sort(sumSub);
-        
+
         System.out.print("Subset sum: ");
         for (int val : sumSub) {
             System.out.print(val + " ");
         }
-
 
         sc.close();
     }
