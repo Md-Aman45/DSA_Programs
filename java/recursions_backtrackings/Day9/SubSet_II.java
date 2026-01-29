@@ -38,5 +38,7 @@ public class SubSet_II {
         for (List<Integer> subset : ansList) {
             System.out.print(subset + " ");
         }
+
+        sc.close();
     }
 }
