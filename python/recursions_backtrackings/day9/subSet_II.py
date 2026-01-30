@@ -22,3 +22,6 @@ findSubsets(0, arr, [], ansList)
 print("Subset without duplicates: ")
 for subset in ansList:
     print(subset, end=" ")
+
+
+    
