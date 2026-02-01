@@ -9,6 +9,8 @@ def findSubsets(ind, arr, ds, ansList):
         findSubsets(i + 1, arr, ds, ansList)
         ds.pop()
 
+
+
     
 n = int(input("Enter the size of arr: "))
 arr = list(map(int, input(f"Enter {n} numbers: ").split()))
