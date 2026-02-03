@@ -14,6 +14,8 @@ def findSubsets(ind, arr, ds, ansList):
 
 
 
+
+
 # ---------- main ----------
 n = int(input("Enter the size of arr: "))
 arr = list(map(int, input(f"Enter {n} numbers: ").split()))
