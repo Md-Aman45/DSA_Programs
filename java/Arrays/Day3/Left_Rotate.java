@@ -68,7 +68,7 @@ public class Left_Rotate {
 
         int n = arr.length;
 
-        int d = 7;
+        int d = 4;
         d = d % n;
 
         reverse(arr, 0, d -1);
