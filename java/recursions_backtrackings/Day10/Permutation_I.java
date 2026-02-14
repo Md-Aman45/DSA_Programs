@@ -1,4 +1,5 @@
 package recursions_backtrackings.Day10;
+
 import java.util.*;
 
 public class Permutation_I {
@@ -13,7 +14,7 @@ public class Permutation_I {
                 freq[i] = true;
                 ds.add(nums[i]);
                 recurPermute(nums, ds, ans, freq);
-                ds.remove(ds.size() -1);
+                ds.remove(ds.size() - 1);
                 freq[i] = false;
             }
         }
@@ -39,6 +40,13 @@ public class Permutation_I {
 
         recurPermute(nums, ds, ans, freq);
 
-        System.out.print("result: " + ans);
+        // System.out.print("result: " + ans);
+
+        System.out.print("Permutations:");
+        for (List<Integer> perm : ans) {
+            System.out.print(perm + ", ");
+        }
+
+        sc.close();
     }
 }
