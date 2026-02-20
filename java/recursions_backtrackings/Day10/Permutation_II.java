@@ -49,5 +49,7 @@ public class Permutation_II {
         for (List<Integer> perm : ans) {
             System.out.println(perm);
         }
+
+        sc.close();
     }
 }
