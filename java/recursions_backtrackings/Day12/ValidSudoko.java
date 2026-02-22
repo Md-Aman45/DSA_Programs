@@ -68,7 +68,7 @@ public class ValidSudoko {
         System.out.println("-------------------------");
     }
 
-    
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -84,6 +84,7 @@ public class ValidSudoko {
         solveSudoko(board);
         printBoard(board);
 
+        sc.close();
     }
 
 }
