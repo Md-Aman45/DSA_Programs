@@ -8,7 +8,6 @@ def solve_n_queens(n):
             if left_row[row] == 0 and \
                lower_diag[row + col] == 0 and \
                upper_diag[n - 1 + col - row] == 0:
-
                 board[row] = board[row][:col] + "Q" + board[row][col+1:]
 
                 left_row[row] = 1
