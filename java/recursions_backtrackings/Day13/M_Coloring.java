@@ -68,6 +68,6 @@ public class M_Coloring {
         else {
             System.out.print("Coloring NOT possible!");
         }
-
+        sc.close();
     }
 }

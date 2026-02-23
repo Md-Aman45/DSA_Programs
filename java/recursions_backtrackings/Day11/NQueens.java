@@ -1,5 +1,4 @@
 package recursions_backtrackings.Day11;
-
 import java.util.*;
 
 public class NQueens {
