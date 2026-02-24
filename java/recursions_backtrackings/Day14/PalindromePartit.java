@@ -14,6 +14,8 @@ public class PalindromePartit {
 
         func(0, s, path, res);
         System.out.print("res: " + res);
+
+        sc.close();
     }
 
 

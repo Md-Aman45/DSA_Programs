@@ -25,6 +25,7 @@ def solve(node, graph, color, n, m):
 
 
 
+
 # ---------------- MAIN ----------------
 n = int(input("Enter number of vertices: "))
 e = int(input("Enter number of edges: "))
