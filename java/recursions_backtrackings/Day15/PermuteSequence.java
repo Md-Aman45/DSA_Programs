@@ -10,7 +10,10 @@ public class PermuteSequence {
             fact = fact * i;
             numbers.add(i);
         }
+
+
         numbers.add(n);
+        
         StringBuilder ans = new StringBuilder();
         k = k - 1;
         while (true) {
@@ -39,7 +42,7 @@ public class PermuteSequence {
 
         System.out.print("res: " + res);
 
-        
+        sc.close();
 
     }
 }
