@@ -57,6 +57,7 @@ public class RatInMaze {
 
         System.out.print("Paths: " + ans);
 
+        
         sc.close();
     }
 }
