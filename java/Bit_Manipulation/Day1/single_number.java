@@ -20,7 +20,7 @@ public class single_number {
 
         System.out.print("single number is: " + res);
 
-        
+        sc.close();
 
     }
 
