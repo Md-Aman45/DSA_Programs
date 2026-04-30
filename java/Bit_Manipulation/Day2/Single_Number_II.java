@@ -16,6 +16,9 @@ public class Single_Number_II {
 
         int res = single(arr);
         System.out.print("Single number is: " + res);
+
+        sc.close();
+        
     }
 
 
@@ -45,18 +48,48 @@ public class Single_Number_II {
 
 
         // second approach...
-        int ans = 0;
-        for (int bitIndex = 0; bitIndex < 32; bitIndex++) {
-            int cnt = 0;
-            for (int i = 0; i < n; i++) {
-                if ((arr[i] & (1 << bitIndex)) != 0) cnt++;
+        // int ans = 0;
+        // for (int bitIndex = 0; bitIndex < 32; bitIndex++) {
+        //     int cnt = 0;
+        //     for (int i = 0; i < n; i++) {
+        //         if ((arr[i] & (1 << bitIndex)) != 0) cnt++;
 
-            }
-            if (cnt % 3 == 1) {
-                ans = ans | (1 << bitIndex);
-            }
+        //     }
+        //     if (cnt % 3 == 1) {
+        //         ans = ans | (1 << bitIndex);
+        //     }
+        // }
+        // return ans;
+
+
+
+
+
+
+        // third approach...
+        // Arrays.sort(arr);
+
+        // for (int i = 1; i < n; i = i + 3) {
+        //     if (arr[i] != arr[i - 1]) {
+        //         return arr[i - 1];
+        //     }
+        // }
+
+        // return arr[n - 1];
+
+
+
+
+
+
+        // fourth approach...
+        int ones = 0, twos = 0;
+
+        for (int i = 0; i < n; i++) {
+            ones = (ones ^ arr[i]) & ~twos;
+            twos = (twos ^ arr[i]) & ~ones;
         }
-        return ans;
+        return ones;
 
     }
 }
