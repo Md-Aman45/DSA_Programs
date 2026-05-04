@@ -17,26 +17,57 @@ public class Single_Number_III {
 
         int[] res = single(arr);
         System.out.print("Single numbers are: " + Arrays.toString(res));
+
+
+        sc.close();
     }
 
 
     public static int[] single(int[] arr) {
-        int n = arr.length;
-        HashMap<Integer, Integer> mpp = new HashMap<>();
+        // int n = arr.length;
 
-        for (int i = 0; i < n; i++) {
-            mpp.put(arr[i], mpp.getOrDefault(arr[i], 0) + 1);
+
+        // brute force approach...
+        // HashMap<Integer, Integer> mpp = new HashMap<>();
+
+        // for (int i = 0; i < n; i++) {
+        //     mpp.put(arr[i], mpp.getOrDefault(arr[i], 0) + 1);
+        // }
+
+        // ArrayList<Integer> ans = new ArrayList<>();
+
+        // for (Map.Entry<Integer, Integer> it : mpp.entrySet()) {
+        //     if (it.getValue() == 1) {
+        //         ans.add(it.getKey());
+        //     }
+        // }
+
+
+        // return new int[]{ans.get(0), ans.get(1)};
+
+
+
+
+
+        // optimal approach...
+        int xor = 0;
+        for (int num : arr) {
+            xor ^= num;
         }
 
-        ArrayList<Integer> ans = new ArrayList<>();
+        int rightMost = xor & -xor;
+        int x = 0;
+        int y = 0;
 
-        for (Map.Entry<Integer, Integer> it : mpp.entrySet()) {
-            if (it.getValue() == 1) {
-                ans.add(it.getKey());
+        for (int num : arr) {
+            if ((num & rightMost) != 0) {
+                x ^= num;
+            }
+            else {
+                y ^= num;
             }
         }
 
-
-        return new int[]{ans.get(0), ans.get(1)};
+        return new int[]{x, y};
     }
 }

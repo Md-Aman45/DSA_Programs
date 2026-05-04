@@ -1,16 +1,43 @@
 def single(arr):
-    mpp = {}
+
+
+
+    # brute force approach...
+    # mpp = {}
+
+    # for num in arr:
+    #     mpp[num] = mpp.get(num, 0) + 1
+
+    # ans = []
+
+    # for key, value in mpp.items():
+    #     if value == 1:
+    #         ans.append(key)
+
+    # return ans
+
+
+
+
+    # optimal approach...
+    xor = 0
 
     for num in arr:
-        mpp[num] = mpp.get(num, 0) + 1
+        xor ^= num
 
-    ans = []
+    rightMost = xor & -xor
 
-    for key, value in mpp.items():
-        if value == 1:
-            ans.append(key)
+    x = 0
+    y = 0
 
-    return ans
+    for num in arr:
+        if (num & rightMost) != 0:
+            x ^= num
+        else:
+            y ^= num
+
+    return [x, y]
+
 
 
 # main
