@@ -17,6 +17,8 @@ public class Xor_No {
 
         // int ans = range(n);
         int ans = range(R) ^ range(L - 1);
+
+        
         // System.out.print("xor from 1 to n: " + ans);
         System.out.print("Xor from L to R: " + ans);
 
