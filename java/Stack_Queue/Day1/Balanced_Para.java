@@ -41,5 +41,7 @@ public class Balanced_Para {
         String s = sc.nextLine();
 
         System.out.println(balanced(s));
+
+        sc.close();
     }
 }
