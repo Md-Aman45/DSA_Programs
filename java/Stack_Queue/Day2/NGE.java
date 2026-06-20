@@ -44,6 +44,7 @@ public class NGE {
         List<Integer> ans = findNGE(arr);
         System.out.print("ans:- " + ans);
 
+        sc.close();
 
 
     }
